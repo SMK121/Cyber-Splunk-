@@ -89,6 +89,11 @@ SOC Analysts
 
 Investigate → Contain → Recover → Improve
 ```
+## Security Monitoring Pipeline Explained
+
+The security monitoring pipeline shows how security data moves through an organisation. Systems such as servers, applications, firewalls, cloud platforms and endpoints generate logs and events, which are collected by a SIEM platform such as Splunk.
+
+Splunk processes this data by collecting, indexing and analysing events to identify suspicious activity and generate alerts. SOC analysts then investigate these alerts, respond to confirmed threats, contain the impact, recover affected systems and improve security controls to prevent future incidents.
 
 ---
 
