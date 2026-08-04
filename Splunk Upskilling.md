@@ -105,6 +105,8 @@ This repository covers:
 - Investigating security events using Splunk
 - Building practical SOC knowledge for entry-level Cyber Security and SOC Analyst roles
 
+---
+
 # Security Operations Centre (SOC)
 
 ## What is a SOC?
