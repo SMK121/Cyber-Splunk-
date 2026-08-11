@@ -4,6 +4,52 @@
 
 ---
 
+## Table of Contents
+
+- [Introduction](#introduction)
+  - [How Everything Connects](#how-everything-connects)
+  - [Where Splunk Fits](#where-splunk-fits)
+  - [The Security Monitoring Pipeline](#the-security-monitoring-pipeline)
+  - [Security Monitoring Pipeline Explained](#security-monitoring-pipeline-explained)
+  - [Learning Objectives](#learning-objectives)
+
+- [Security Operations Centre (SOC)](#security-operations-centre-soc)
+  - [What is a SOC?](#what-is-a-soc)
+  - [Key Functions of a SOC](#key-functions-of-a-soc)
+
+- [Common SOC Technologies](#common-soc-technologies)
+
+- [SOC Processes](#soc-processes)
+
+- [Common SOC Challenges](#common-soc-challenges)
+
+- [SOC Best Practices](#soc-best-practices)
+
+- [SOC Roles](#soc-roles)
+
+- [Threat Hunting](#threat-hunting)
+  - [What is Threat Hunting?](#what-is-threat-hunting)
+  - [Examples of Threat Hunting Activities](#examples-of-threat-hunting-activities)
+
+- [Common Security Event Types to Monitor](#common-security-event-types-to-monitor)
+
+- [Security Information and Event Management (SIEM)](#security-information-and-event-management-siem)
+  - [What is SIEM?](#what-is-siem)
+  - [SIEM Analogy](#siem-analogy)
+  - [Examples of SIEM Software (2026)](#examples-of-siem-software-2026)
+
+- [What is Splunk?](#what-is-splunk)
+
+- [What can Splunk be used for?](#what-can-splunk-be-used-for)
+
+- [Why use Splunk?](#why-use-splunk)
+
+- [What is a Splunk/SOC Analyst?](#what-is-a-splunksoc-analyst)
+
+- [Splunk Versions](#splunk-versions)
+
+
+---
 # Introduction
 
 As organisations become increasingly reliant on digital systems, they also become more vulnerable to cyber attacks such as ransomware, phishing, insider threats and data breaches. Every day, thousands or even millions of security events are generated across servers, applications, cloud platforms, endpoints and network devices.
