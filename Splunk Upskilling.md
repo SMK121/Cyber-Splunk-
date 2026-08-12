@@ -469,11 +469,12 @@ Typical responsibilities include:
 
 ---
 
-# Splunk Architecture
+
+## Splunk Architecture
 
 Splunk uses a distributed architecture to collect, process, store and search machine-generated data. The main components covered in this section are the **Search Head, Universal Forwarder and Indexer**.
 
--
+```text
                          DATA SOURCES
        ┌──────────┬──────────┬──────────┬──────────┐
        │          │          │          │          │
@@ -504,71 +505,78 @@ Splunk uses a distributed architecture to collect, process, store and search mac
                               │
                               ▼
                          SOC Analyst
-Search Head
+```
 
-The Search Head is the Splunk component used to search, analyse and visualise data.
+### Search Head
+
+The **Search Head** is the Splunk component used to search, analyse and visualise data.
 
 It provides the interface that users and analysts interact with when working with Splunk.
 
 Common activities include:
 
-Running SPL searches
-Investigating security events
-Creating dashboards
-Creating reports
-Configuring alerts
-Analysing search results
-Managing knowledge objects
+- Running SPL searches
+- Investigating security events
+- Creating dashboards
+- Creating reports
+- Configuring alerts
+- Analysing search results
+- Managing knowledge objects
 
 In a distributed Splunk environment, a Search Head can send searches to one or more Indexers and combine the results.
 
-Universal Forwarder
+### Universal Forwarder
 
-The Universal Forwarder (UF) is a lightweight Splunk component used primarily to collect and forward data to another Splunk component, such as an Indexer.
+The **Universal Forwarder (UF)** is a lightweight Splunk component used primarily to collect and forward data to another Splunk component, such as an Indexer.
 
 For example, a Universal Forwarder could be installed on a Windows server and configured to collect Windows Event Logs.
 
 Its main functions include:
 
-Collecting log data
-Monitoring files and directories
-Forwarding events
-Using relatively few system resources
-Sending data to Splunk Indexers or other receiving components
+- Collecting log data
+- Monitoring files and directories
+- Forwarding events
+- Using relatively few system resources
+- Sending data to Splunk Indexers or other receiving components
 
-The Universal Forwarder is designed for data collection and forwarding, rather than searching and analysing data.
+The Universal Forwarder is designed for **data collection and forwarding**, rather than searching and analysing data.
 
-Indexers
+### Indexers
 
-Indexers receive incoming data, process it and store it so that it can later be searched.
+**Indexers** receive incoming data, process it and store it so that it can later be searched.
 
 Their main responsibilities include:
 
-Receiving data
-Processing incoming events
-Indexing data
-Storing indexed events
-Making data available for searches
+- Receiving data
+- Processing incoming events
+- Indexing data
+- Storing indexed events
+- Making data available for searches
 
 Large Splunk environments can use multiple Indexers to distribute data and search workloads, improving scalability and availability.
 
-Splunk Deployment Options
+---
+
+## Splunk Deployment Options
 
 Splunk can be deployed in different ways depending on the organisation's size, requirements and infrastructure.
 
-Deployment	Description	Typical Use
-Standalone	Search and indexing functions can operate on one system	Learning, testing and smaller environments
-Distributed Deployment	Search Heads and Indexers operate on separate systems	Larger environments
-Search Head Cluster	Multiple Search Heads work together	Scalability and high availability
-Splunk Cloud Platform	Splunk is provided as a cloud service	Organisations wanting a managed Splunk environment
-Standalone Deployment
+| Deployment | Description | Typical Use |
+|---|---|---|
+| **Standalone** | Search and indexing functions can operate on one system | Learning, testing and smaller environments |
+| **Distributed Deployment** | Search Heads and Indexers operate on separate systems | Larger environments |
+| **Search Head Cluster** | Multiple Search Heads work together | Scalability and high availability |
+| **Splunk Cloud Platform** | Splunk is provided as a cloud service | Organisations wanting a managed Splunk environment |
+
+### Standalone Deployment
 
 A standalone deployment can be useful for learning and smaller environments because multiple Splunk functions can operate on a single instance.
 
-Distributed Deployment
+### Distributed Deployment
 
 In a distributed deployment, Splunk components are separated across multiple systems.
 
+```text
 Data Sources
      │
      ▼
@@ -582,70 +590,640 @@ Search Head
      │
      ▼
 Analysts
+```
 
 This approach allows organisations to scale their Splunk environment as the volume of data increases.
 
-Search Head Cluster
+### Search Head Cluster
 
-A Search Head Cluster (SHC) consists of multiple Search Heads working together.
+A **Search Head Cluster (SHC)** consists of multiple Search Heads working together.
 
 This can provide:
 
-Improved availability
-Scalability
-Shared configuration and knowledge
-Better support for multiple users
-Splunk Cloud Platform
+- Improved availability
+- Scalability
+- Shared configuration and knowledge
+- Better support for multiple users
 
-Splunk Cloud Platform provides Splunk as a cloud-based service. This can reduce the amount of infrastructure an organisation needs to manage itself.
+### Splunk Cloud Platform
 
-Basic Splunk Terms
+**Splunk Cloud Platform** provides Splunk as a cloud-based service. This can reduce the amount of infrastructure an organisation needs to manage itself.
+
+---
+
+## Basic Splunk Terms
 
 Understanding common Splunk terminology is important when learning how to search and analyse data.
 
-Term	Meaning
-Event	An individual record of activity indexed by Splunk
-Index	A location where Splunk stores indexed events
-Host	The system that generated the event
-Source	The original source of the data
-Sourcetype	Identifies the type or format of incoming data
-Field	A named piece of information extracted from an event
-SPL	Splunk Search Processing Language
-Search Head	Component used to search and analyse data
-Indexer	Component responsible for processing and storing data
-Forwarder	Component used to collect and forward data
-Dashboard	Collection of panels displaying search results
-Alert	A notification generated when search conditions are met
-Report	A saved search that can be run or scheduled
-Timestamp	Records when an event occurred
-What Type of Data Does Splunk Ingest?
+| Term | Meaning |
+|---|---|
+| **Event** | An individual record of activity indexed by Splunk |
+| **Index** | A location where Splunk stores indexed events |
+| **Host** | The system that generated the event |
+| **Source** | The original source of the data |
+| **Sourcetype** | Identifies the type or format of incoming data |
+| **Field** | A named piece of information extracted from an event |
+| **SPL** | Splunk Search Processing Language |
+| **Search Head** | Component used to search and analyse data |
+| **Indexer** | Component responsible for processing and storing data |
+| **Forwarder** | Component used to collect and forward data |
+| **Dashboard** | Collection of panels displaying search results |
+| **Alert** | A notification generated when search conditions are met |
+| **Report** | A saved search that can be run or scheduled |
+| **Timestamp** | Records when an event occurred |
 
-Splunk is designed to collect and analyse machine-generated data from a wide range of systems.
+---
+
+## What Type of Data Does Splunk Ingest?
+
+Splunk is designed to collect and analyse **machine-generated data** from a wide range of systems.
 
 Common sources include:
 
-Data Source	Example Data
-Windows	Windows Event Logs
-Linux	Syslog and authentication logs
-Firewalls	Allowed and blocked connections
-Network Devices	Network traffic and authentication events
-Web Servers	HTTP requests and errors
-Applications	Application activity and errors
-DNS	DNS queries and responses
-VPN	Remote access activity
-Cloud Platforms	API calls and authentication activity
-Endpoints	Process, file and security events
+| Data Source | Example Data |
+|---|---|
+| **Windows** | Windows Event Logs |
+| **Linux** | Syslog and authentication logs |
+| **Firewalls** | Allowed and blocked connections |
+| **Network Devices** | Network traffic and authentication events |
+| **Web Servers** | HTTP requests and errors |
+| **Applications** | Application activity and errors |
+| **DNS** | DNS queries and responses |
+| **VPN** | Remote access activity |
+| **Cloud Platforms** | API calls and authentication activity |
+| **Endpoints** | Process, file and security events |
 
 Splunk can also ingest different data formats, including:
 
-Plain text
-CSV
-JSON
-XML
-Syslog
-Application logs
-System logs
+- Plain text
+- CSV
+- JSON
+- XML
+- Syslog
+- Application logs
+- System logs
 
 The type of data collected depends on the organisation's environment and monitoring requirements.
 
 ---
+
+## How Can Splunk Onboard and Ingest Data?
+
+**Data onboarding** is the process of getting data into Splunk and configuring it so that the data can be correctly interpreted, indexed and searched.
+
+Common ingestion methods include:
+
+| Method | Description |
+|---|---|
+| **Universal Forwarder** | Collects and forwards data from systems |
+| **Heavy Forwarder** | Can process and forward data before it reaches Indexers |
+| **Syslog** | Common method for collecting network and security device logs |
+| **HTTP Event Collector (HEC)** | Allows applications to send events to Splunk using HTTP/HTTPS |
+| **APIs** | Can allow external applications and services to send or retrieve data |
+| **File Monitoring** | Splunk can monitor specified log files |
+| **Splunk Add-ons** | Provide integrations and configurations for particular data sources |
+
+A simplified ingestion process is:
+
+```text
+Data Source
+     │
+     ▼
+Data Collection
+     │
+     ▼
+Forward / Send Data
+     │
+     ▼
+Splunk Indexer
+     │
+     ▼
+Process & Index
+     │
+     ▼
+Search Using SPL
+```
+
+---
+
+## What Are Events?
+
+An **event** is an individual record of activity that Splunk indexes.
+
+For example, a failed login could generate an event such as:
+
+```text
+2026-08-12 10:32:15
+user=john.smith
+action=failed_login
+src_ip=192.168.1.50
+host=server01
+```
+
+This event contains information about what happened and can be searched and analysed using SPL.
+
+Common information found within events includes:
+
+- Timestamp
+- Host
+- Source
+- Sourcetype
+- Username
+- IP address
+- Action
+- Event type
+- Other fields relevant to the data source
+
+Events are therefore the basic units of information that analysts investigate within Splunk.
+
+---
+
+## What is SPL?
+
+**Search Processing Language (SPL)** is Splunk's search language.
+
+SPL allows users to:
+
+- Search events
+- Filter data
+- Extract information
+- Transform results
+- Calculate statistics
+- Identify patterns
+- Create visualisations
+
+SPL is particularly useful for SOC analysts because it allows large amounts of security data to be investigated efficiently.
+
+SPL commands are commonly connected using the **pipe (`|`)** character.
+
+```text
+Search → Filter → Transform → Analyse → Visualise
+```
+
+---
+
+## Basic SPL Searches
+
+### Search an Index
+
+The following search returns events from the `main` index:
+
+```spl
+index=main
+```
+
+### Search for Failed Windows Logins
+
+```spl
+index=windows EventCode=4625
+```
+
+Event Code `4625` is commonly associated with failed Windows logon attempts.
+
+This type of search could help a SOC analyst investigate potential brute-force or account compromise activity.
+
+### Search for a Specific Host
+
+```spl
+index=main host=server01
+```
+
+This searches for events generated by `server01`.
+
+### Search for a Specific IP Address
+
+```spl
+index=firewall src_ip="192.168.1.50"
+```
+
+This searches firewall data for events associated with the specified source IP address.
+
+### Search Using Multiple Conditions
+
+```spl
+index=windows EventCode=4625 user="admin"
+```
+
+This searches for failed logon events associated with the specified user.
+
+---
+
+## Basic SPL Transformations
+
+SPL can be used to transform raw events into useful statistics and summaries.
+
+### Count Events
+
+```spl
+index=main
+| stats count
+```
+
+This counts the number of events returned by the search.
+
+### Count Events by User
+
+```spl
+index=windows
+| stats count by user
+```
+
+This groups events by user and counts the number of events associated with each user.
+
+This could be useful for identifying accounts generating unusually high amounts of activity.
+
+### Find Common Source IP Addresses
+
+```spl
+index=firewall
+| top src_ip
+```
+
+This identifies the source IP addresses appearing most frequently in the search results.
+
+### Display Specific Fields
+
+```spl
+index=windows
+| table user, host, EventCode
+```
+
+The `table` command displays selected fields in a table.
+
+### Sort Results
+
+```spl
+index=main
+| sort -count
+```
+
+The `sort` command can be used to order search results.
+
+### Count Events by Host
+
+```spl
+index=main
+| stats count by host
+```
+
+This can help identify which systems are generating the largest number of events.
+
+---
+
+## Basic SPL Visualisations
+
+Splunk searches can also be used to create visual representations of data.
+
+### Events Over Time
+
+```spl
+index=main
+| timechart count
+```
+
+The `timechart` command can be used to show how event volumes change over time.
+
+The results can be displayed as a line or column chart.
+
+### Events by Action
+
+```spl
+index=firewall
+| stats count by action
+```
+
+The results could be displayed as a bar chart to compare different actions.
+
+### Events by User
+
+```spl
+index=windows
+| stats count by user
+```
+
+This can be displayed as a bar chart to compare activity between users.
+
+---
+
+## Example SPL Workflow
+
+```text
+                    Raw Events
+                        │
+                        ▼
+                    SPL Search
+                        │
+                        ▼
+                    Filter Data
+                        │
+                        ▼
+                  Transform Data
+                        │
+                        ▼
+                   Analyse Data
+                        │
+              ┌─────────┼─────────┐
+              ▼         ▼         ▼
+           Table      Chart    Dashboard
+```
+
+SPL therefore provides the link between **raw security data and useful analysis**.
+
+---
+
+## What Can You Produce in Splunk?
+
+Splunk can turn search results into different forms of analysis, monitoring and reporting.
+
+| Output | Purpose |
+|---|---|
+| **Dashboards** | Provide an overview of important information |
+| **Reports** | Save searches for repeated or scheduled analysis |
+| **Alerts** | Notify analysts when defined conditions are met |
+| **Tables** | Display detailed event information |
+| **Charts** | Show patterns and trends |
+| **Single Values** | Display important metrics |
+| **Maps** | Visualise geographically relevant data |
+
+### Dashboards
+
+Dashboards combine multiple searches and visualisations into a single interface.
+
+For example, a SOC dashboard could contain:
+
+```text
+┌───────────────────────────────────────────────┐
+│              SOC SECURITY DASHBOARD           │
+├─────────────────────┬─────────────────────────┤
+│ Failed Logins       │ Malware Alerts          │
+│      1,245          │          18             │
+├─────────────────────┴─────────────────────────┤
+│                                               │
+│           Security Events Over Time           │
+│                                               │
+├─────────────────────────┬─────────────────────┤
+│ Top Source IPs          │ Top Target Hosts    │
+│                         │                     │
+└─────────────────────────┴─────────────────────┘
+```
+
+A SOC dashboard could help analysts monitor authentication activity, security alerts, suspicious IP addresses and other important security metrics from one location.
+
+---
+
+## Splunk Apps vs Splunk Add-ons
+
+**Splunk Apps** and **Splunk Add-ons** both extend Splunk's functionality, but they have different purposes.
+
+| | Splunk App | Splunk Add-on |
+|---|---|---|
+| **Main purpose** | Provides functionality and user experience | Provides data integration and processing |
+| **Dashboards** | Commonly included | Usually not the main purpose |
+| **Data inputs** | May include them | Commonly provides inputs and configurations |
+| **Data parsing** | May be included | Commonly provides parsing and field extraction |
+| **User interface** | Usually provides a user interface | Usually has limited or no user interface |
+
+### Simple Difference
+
+> **Apps help users work with and visualise data, while Add-ons help Splunk collect, understand and process data from specific sources.**
+
+For example, an Add-on may provide the configurations required to correctly ingest data from a particular security product, while an App may provide dashboards and searches for analysing that data.
+
+---
+
+## Splunk Use Cases and Case Studies
+
+Splunk can be used across cybersecurity, IT operations, business analysis and other areas.
+
+### Security / SOC
+
+In a SOC, Splunk can be used to:
+
+- Monitor authentication activity
+- Detect brute-force attacks
+- Investigate suspicious IP addresses
+- Monitor endpoint activity
+- Detect unusual network behaviour
+- Support threat hunting
+- Investigate security incidents
+- Create security dashboards
+- Generate alerts
+
+#### Example Security Workflow
+
+```text
+Multiple Failed Logins
+          │
+          ▼
+      Splunk Search
+          │
+          ▼
+     Detection Rule
+          │
+          ▼
+        Alert
+          │
+          ▼
+     SOC Analyst
+          │
+          ▼
+     Investigation
+```
+
+Splunk can therefore help SOC teams move from:
+
+**Raw security events → Detection → Investigation → Response**
+
+### IT Operations
+
+Splunk can also be used by IT and operations teams to monitor infrastructure and applications.
+
+Examples include:
+
+- Server errors
+- Application failures
+- Network problems
+- System performance
+- Service availability
+- Troubleshooting incidents
+- Infrastructure monitoring
+
+This can help organisations identify problems before they significantly affect users or services.
+
+### Business and Data Analysis
+
+Splunk can analyse machine-generated business data to identify trends and patterns.
+
+Potential uses include:
+
+- Transaction monitoring
+- Customer activity analysis
+- Operational metrics
+- Business performance monitoring
+- Identifying unusual transaction behaviour
+- Tracking key performance indicators
+
+### Other Uses
+
+Additional Splunk use cases include:
+
+- Cloud monitoring
+- Application monitoring
+- Compliance
+- Fraud detection
+- DevOps monitoring
+- Infrastructure monitoring
+
+---
+
+## Best Practices for Securing Data on Splunk
+
+Splunk environments can contain sensitive information such as usernames, IP addresses, authentication records and application data. Protecting the Splunk environment is therefore important.
+
+Key practices include:
+
+- Apply **least privilege**
+- Use **Role-Based Access Control (RBAC)**
+- Enable strong authentication and MFA where available
+- Restrict administrative access
+- Encrypt communications between Splunk components
+- Protect sensitive indexes
+- Regularly patch Splunk components
+- Monitor administrative activity
+- Maintain appropriate data retention policies
+- Avoid unnecessarily collecting sensitive information
+- Restrict access to sensitive searches, dashboards and data
+
+Security controls should be appropriate to the organisation's environment, data sensitivity and compliance requirements.
+
+---
+
+## Splunk Certification Path
+
+Splunk provides training and certifications covering different levels of Splunk knowledge and specialist areas.
+
+A learning progression can move from foundational knowledge towards more advanced user, administration, development and security-focused skills.
+
+```text
+Splunk Fundamentals
+        │
+        ▼
+Core Splunk Knowledge
+        │
+        ▼
+Advanced Searching
+        │
+        ├───────────────┐
+        ▼               ▼
+ Administration      Development
+        │
+        ▼
+Advanced / Specialist Skills
+        │
+        ▼
+Security-focused Splunk Skills
+```
+
+For someone interested in SOC and cybersecurity, useful areas to develop alongside Splunk knowledge include:
+
+| Certification / Area | Relevance to SOC |
+|---|---|
+| **Splunk Certifications** | Develops practical knowledge of the Splunk platform |
+| **CompTIA Security+** | Provides broad cybersecurity fundamentals |
+| **CompTIA CySA+** | Focuses on security monitoring, detection and incident response |
+| **Microsoft Security Certifications** | Useful for Microsoft-focused SOC environments |
+| **Vendor-specific SIEM Training** | Develops knowledge of other security monitoring platforms |
+
+Certifications are most valuable when supported by practical labs, investigation exercises and experience analysing realistic security data.
+
+---
+
+## Encrypting Data in Splunk
+
+Encryption can help protect Splunk data both while it is being transmitted and while it is stored.
+
+### Encryption in Transit
+
+TLS can be used to protect communications between Splunk components and data sources.
+
+```text
+Data Source
+     │
+     │ Encrypted Connection
+     ▼
+Forwarder
+     │
+     │ Encrypted Connection
+     ▼
+Indexer
+```
+
+### Encryption at Rest
+
+Encryption at rest helps protect stored data from unauthorised access to the underlying storage.
+
+The exact encryption approach depends on the Splunk deployment, infrastructure and organisational security requirements.
+
+---
+
+## AI with Splunk
+
+AI is increasingly being incorporated into security operations and data analysis.
+
+Potential applications include:
+
+- Assisting analysts during investigations
+- Summarising security findings
+- Helping generate or explain searches
+- Identifying patterns across large datasets
+- Supporting detection engineering
+- Reducing repetitive analyst tasks
+
+AI should complement analyst judgement rather than completely replace human investigation and validation.
+
+---
+
+## Recommended Datasets for Splunk
+
+Practical datasets are useful for developing SPL and SOC investigation skills without requiring access to a production environment.
+
+| Dataset / Resource | Purpose |
+|---|---|
+| **Splunk Boss of the SOC (BOTS)** | Security investigation challenges |
+| **Splunk Security Research** | Security datasets and research |
+| **Windows Event Logs** | Authentication and endpoint investigations |
+| **Sysmon Data** | Process and endpoint activity |
+| **Network Logs** | Investigating network behaviour |
+| **Firewall Logs** | Analysing allowed and blocked connections |
+
+The **Boss of the SOC (BOTS)** datasets are particularly useful for practising security investigations because they provide realistic scenarios that require searching and analysing Splunk data.
+
+---
+
+## Summary
+
+This section covered the main technical concepts required to begin working with Splunk:
+
+- Splunk architecture
+- Search Heads
+- Universal Forwarders
+- Indexers
+- Splunk deployment options
+- Basic Splunk terminology
+- Data ingestion
+- Events
+- Search Processing Language (SPL)
+- Basic SPL searches
+- SPL transformations
+- SPL visualisations
+- Dashboards and other Splunk outputs
+- Splunk Apps and Add-ons
+- Security and SOC use cases
+- IT and business use cases
+- Splunk security best practices
+- Splunk certification pathways
+- Encryption
+- AI
+- Practical datasets
+
+These concepts provide a foundation for progressing from Splunk fundamentals into more practical **SOC monitoring, threat detection, SPL investigation and security analysis**.
