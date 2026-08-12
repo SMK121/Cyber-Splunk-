@@ -560,7 +560,6 @@ Common activities include:
 - Managing knowledge objects
 
 In a distributed Splunk environment, a Search Head can send searches to one or more Indexers and combine the results.
----
 
 ### Universal Forwarder
 
@@ -578,7 +577,6 @@ Its main functions include:
 
 The Universal Forwarder is designed for **data collection and forwarding**, rather than searching and analysing data.
 
----
 ### Indexers
 
 **Indexers** receive incoming data, process it and store it so that it can later be searched.
