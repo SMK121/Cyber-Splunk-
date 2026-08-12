@@ -469,4 +469,183 @@ Typical responsibilities include:
 
 ---
 
+# Splunk Architecture
+
+Splunk uses a distributed architecture to collect, process, store and search machine-generated data. The main components covered in this section are the **Search Head, Universal Forwarder and Indexer**.
+
+-
+                         DATA SOURCES
+       ┌──────────┬──────────┬──────────┬──────────┐
+       │          │          │          │          │
+    Servers   Firewalls   Cloud     Endpoints   Network
+       │          │          │          │        Devices
+       └──────────┴──────────┴──────────┴──────────┘
+                              │
+                              ▼
+                    ┌───────────────────┐
+                    │ Universal         │
+                    │ Forwarder         │
+                    │ Collects Data     │
+                    └─────────┬─────────┘
+                              │
+                              ▼
+                    ┌───────────────────┐
+                    │     Indexer(s)    │
+                    │ Process & Store    │
+                    │      Events       │
+                    └─────────┬─────────┘
+                              │
+                              ▼
+                    ┌───────────────────┐
+                    │    Search Head    │
+                    │ Search & Analyse  │
+                    │ Dashboards/Alerts │
+                    └─────────┬─────────┘
+                              │
+                              ▼
+                         SOC Analyst
+Search Head
+
+The Search Head is the Splunk component used to search, analyse and visualise data.
+
+It provides the interface that users and analysts interact with when working with Splunk.
+
+Common activities include:
+
+Running SPL searches
+Investigating security events
+Creating dashboards
+Creating reports
+Configuring alerts
+Analysing search results
+Managing knowledge objects
+
+In a distributed Splunk environment, a Search Head can send searches to one or more Indexers and combine the results.
+
+Universal Forwarder
+
+The Universal Forwarder (UF) is a lightweight Splunk component used primarily to collect and forward data to another Splunk component, such as an Indexer.
+
+For example, a Universal Forwarder could be installed on a Windows server and configured to collect Windows Event Logs.
+
+Its main functions include:
+
+Collecting log data
+Monitoring files and directories
+Forwarding events
+Using relatively few system resources
+Sending data to Splunk Indexers or other receiving components
+
+The Universal Forwarder is designed for data collection and forwarding, rather than searching and analysing data.
+
+Indexers
+
+Indexers receive incoming data, process it and store it so that it can later be searched.
+
+Their main responsibilities include:
+
+Receiving data
+Processing incoming events
+Indexing data
+Storing indexed events
+Making data available for searches
+
+Large Splunk environments can use multiple Indexers to distribute data and search workloads, improving scalability and availability.
+
+Splunk Deployment Options
+
+Splunk can be deployed in different ways depending on the organisation's size, requirements and infrastructure.
+
+Deployment	Description	Typical Use
+Standalone	Search and indexing functions can operate on one system	Learning, testing and smaller environments
+Distributed Deployment	Search Heads and Indexers operate on separate systems	Larger environments
+Search Head Cluster	Multiple Search Heads work together	Scalability and high availability
+Splunk Cloud Platform	Splunk is provided as a cloud service	Organisations wanting a managed Splunk environment
+Standalone Deployment
+
+A standalone deployment can be useful for learning and smaller environments because multiple Splunk functions can operate on a single instance.
+
+Distributed Deployment
+
+In a distributed deployment, Splunk components are separated across multiple systems.
+
+Data Sources
+     │
+     ▼
+Forwarders
+     │
+     ▼
+Indexers
+     │
+     ▼
+Search Head
+     │
+     ▼
+Analysts
+
+This approach allows organisations to scale their Splunk environment as the volume of data increases.
+
+Search Head Cluster
+
+A Search Head Cluster (SHC) consists of multiple Search Heads working together.
+
+This can provide:
+
+Improved availability
+Scalability
+Shared configuration and knowledge
+Better support for multiple users
+Splunk Cloud Platform
+
+Splunk Cloud Platform provides Splunk as a cloud-based service. This can reduce the amount of infrastructure an organisation needs to manage itself.
+
+Basic Splunk Terms
+
+Understanding common Splunk terminology is important when learning how to search and analyse data.
+
+Term	Meaning
+Event	An individual record of activity indexed by Splunk
+Index	A location where Splunk stores indexed events
+Host	The system that generated the event
+Source	The original source of the data
+Sourcetype	Identifies the type or format of incoming data
+Field	A named piece of information extracted from an event
+SPL	Splunk Search Processing Language
+Search Head	Component used to search and analyse data
+Indexer	Component responsible for processing and storing data
+Forwarder	Component used to collect and forward data
+Dashboard	Collection of panels displaying search results
+Alert	A notification generated when search conditions are met
+Report	A saved search that can be run or scheduled
+Timestamp	Records when an event occurred
+What Type of Data Does Splunk Ingest?
+
+Splunk is designed to collect and analyse machine-generated data from a wide range of systems.
+
+Common sources include:
+
+Data Source	Example Data
+Windows	Windows Event Logs
+Linux	Syslog and authentication logs
+Firewalls	Allowed and blocked connections
+Network Devices	Network traffic and authentication events
+Web Servers	HTTP requests and errors
+Applications	Application activity and errors
+DNS	DNS queries and responses
+VPN	Remote access activity
+Cloud Platforms	API calls and authentication activity
+Endpoints	Process, file and security events
+
+Splunk can also ingest different data formats, including:
+
+Plain text
+CSV
+JSON
+XML
+Syslog
+Application logs
+System logs
+
+The type of data collected depends on the organisation's environment and monitoring requirements.
+
 ---
