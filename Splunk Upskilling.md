@@ -62,27 +62,7 @@
 - [What Can You Produce in Splunk?](#what-can-you-produce-in-splunk)
   - [Dashboards](#dashboards)
 
-- [Splunk Apps vs Splunk Add-ons](#splunk-apps-vs-splunk-add-ons)
 
-- [Splunk Use Cases and Case Studies](#splunk-use-cases-and-case-studies)
-  - [Security / SOC](#security--soc)
-  - [IT Operations](#it-operations)
-  - [Business and Data Analysis](#business-and-data-analysis)
-  - [Other Uses](#other-uses)
-
-- [Best Practices for Securing Data on Splunk](#best-practices-for-securing-data-on-splunk)
-
-- [Splunk Certification Path](#splunk-certification-path)
-
-- [Encrypting Data in Splunk](#encrypting-data-in-splunk)
-  - [Encryption in Transit](#encryption-in-transit)
-  - [Encryption at Rest](#encryption-at-rest)
-
-- [AI with Splunk](#ai-with-splunk)
-
-- [Recommended Datasets for Splunk](#recommended-datasets-for-splunk)
-
-- [Summary](#summary)
 
 
 ---
