@@ -6,47 +6,83 @@
 
 ## Table of Contents
 
+## Table of Contents
+
 - [Introduction](#introduction)
-  - [How Everything Connects](#how-everything-connects)
-  - [Where Splunk Fits](#where-splunk-fits)
-  - [The Security Monitoring Pipeline](#the-security-monitoring-pipeline)
-  - [Security Monitoring Pipeline Explained](#security-monitoring-pipeline-explained)
-  - [Learning Objectives](#learning-objectives)
+- [How Everything Connects](#how-everything-connects)
+- [Where Splunk Fits](#where-splunk-fits)
+- [The Security Monitoring Pipeline](#the-security-monitoring-pipeline)
+- [Learning Objectives](#learning-objectives)
 
-- [Security Operations Centre (SOC)](#security-operations-centre-soc)
-  - [What is a SOC?](#what-is-a-soc)
-  - [Key Functions of a SOC](#key-functions-of-a-soc)
+- [What is a Security Operations Centre (SOC)?](#what-is-a-security-operations-centre-soc)
+  - [Key Functions](#key-functions)
+  - [Common SOC Technologies](#common-soc-technologies)
+  - [SOC Processes](#soc-processes)
+  - [SOC Challenges](#soc-challenges)
+  - [SOC Best Practices](#soc-best-practices)
+  - [SOC Roles](#soc-roles)
+  - [Threat Hunting](#threat-hunting)
+  - [Common Event Types to Look Out For](#common-event-types-to-look-out-for)
 
-- [Common SOC Technologies](#common-soc-technologies)
-
-- [SOC Processes](#soc-processes)
-
-- [Common SOC Challenges](#common-soc-challenges)
-
-- [SOC Best Practices](#soc-best-practices)
-
-- [SOC Roles](#soc-roles)
-
-- [Threat Hunting](#threat-hunting)
-  - [What is Threat Hunting?](#what-is-threat-hunting)
-  - [Examples of Threat Hunting Activities](#examples-of-threat-hunting-activities)
-
-- [Common Security Event Types to Monitor](#common-security-event-types-to-monitor)
-
-- [Security Information and Event Management (SIEM)](#security-information-and-event-management-siem)
-  - [What is SIEM?](#what-is-siem)
+- [What is SIEM?](#what-is-siem)
   - [SIEM Analogy](#siem-analogy)
-  - [Examples of SIEM Software (2026)](#examples-of-siem-software-2026)
+  - [Examples of SIEM Software](#examples-of-siem-software)
 
 - [What is Splunk?](#what-is-splunk)
+  - [What Can Splunk Be Used For?](#what-can-splunk-be-used-for)
+  - [Why Use Splunk?](#why-use-splunk)
+  - [What is a Splunk/SOC Analyst?](#what-is-a-splunksoc-analyst)
+  - [Splunk Versions](#splunk-versions)
 
-- [What can Splunk be used for?](#what-can-splunk-be-used-for)
+- [Splunk Architecture](#splunk-architecture)
+  - [Search Head](#search-head)
+  - [Universal Forwarder](#universal-forwarder)
+  - [Indexers](#indexers)
 
-- [Why use Splunk?](#why-use-splunk)
+- [Splunk Deployment Options](#splunk-deployment-options)
+  - [Standalone Deployment](#standalone-deployment)
+  - [Distributed Deployment](#distributed-deployment)
+  - [Search Head Cluster](#search-head-cluster)
+  - [Splunk Cloud Platform](#splunk-cloud-platform)
 
-- [What is a Splunk/SOC Analyst?](#what-is-a-splunksoc-analyst)
+- [Basic Splunk Terms](#basic-splunk-terms)
 
-- [Splunk Versions](#splunk-versions)
+- [What Type of Data Does Splunk Ingest?](#what-type-of-data-does-splunk-ingest)
+
+- [How Can Splunk Onboard and Ingest Data?](#how-can-splunk-onboard-and-ingest-data)
+
+- [What Are Events?](#what-are-events)
+
+- [What is SPL?](#what-is-spl)
+  - [Basic SPL Searches](#basic-spl-searches)
+  - [Basic SPL Transformations](#basic-spl-transformations)
+  - [Basic SPL Visualisations](#basic-spl-visualisations)
+  - [Example SPL Workflow](#example-spl-workflow)
+
+- [What Can You Produce in Splunk?](#what-can-you-produce-in-splunk)
+  - [Dashboards](#dashboards)
+
+- [Splunk Apps vs Splunk Add-ons](#splunk-apps-vs-splunk-add-ons)
+
+- [Splunk Use Cases and Case Studies](#splunk-use-cases-and-case-studies)
+  - [Security / SOC](#security--soc)
+  - [IT Operations](#it-operations)
+  - [Business and Data Analysis](#business-and-data-analysis)
+  - [Other Uses](#other-uses)
+
+- [Best Practices for Securing Data on Splunk](#best-practices-for-securing-data-on-splunk)
+
+- [Splunk Certification Path](#splunk-certification-path)
+
+- [Encrypting Data in Splunk](#encrypting-data-in-splunk)
+  - [Encryption in Transit](#encryption-in-transit)
+  - [Encryption at Rest](#encryption-at-rest)
+
+- [AI with Splunk](#ai-with-splunk)
+
+- [Recommended Datasets for Splunk](#recommended-datasets-for-splunk)
+
+- [Summary](#summary)
 
 
 ---
