@@ -360,6 +360,9 @@ A SIEM works the same way, collecting from servers, applications, endpoints, fir
 
 ## What is Splunk?
 
+![Splunk architecture diagram](https://github.com/user-attachments/assets/a8ef8a0f-11b5-444b-a500-fe6b9095a34c)
+
+
 Splunk is a data analytics platform used to collect, search, analyse and visualise machine-generated data.
 
 Although Splunk is widely used in cybersecurity, it can also support:
