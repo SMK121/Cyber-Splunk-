@@ -887,24 +887,31 @@ Splunk can turn search results into different forms of analysis, monitoring and 
 
 ### Dashboards
 
-Dashboards combine multiple searches and visualisations into a single interface.
+Dashboards combine multiple searches and visualisations into a single interface, providing a centralised view of security activity.
 
-For example, a SOC dashboard could contain:
+For example, a SOC dashboard could display:
 
-```text
-┌───────────────────────────────────────────────┐
-│              SOC SECURITY DASHBOARD           │
-├─────────────────────┬─────────────────────────┤
-│ Failed Logins       │ Malware Alerts          │
-│      1,245          │          18             │
-├─────────────────────┴─────────────────────────┤
-│                                               │
-│           Security Events Over Time           │
-│                                               │
-├─────────────────────────┬─────────────────────┤
-│ Top Source IPs          │ Top Target Hosts    │
-│                         │                     │
-└─────────────────────────┴─────────────────────┘
+- **Allowed and blocked intrusion attempts**
+- **Alerts by severity**, including critical, high, medium, low and informational
+- **Intrusion signatures** and their associated event counts
+- **Attack sources and geographic locations**
+- **Alert trends over time**
+- **Visual summaries of intrusion activity**
+
+This allows security analysts to quickly monitor the current security posture, identify unusual activity and prioritise alerts for further investigation.
+
+### Example Splunk Dashboard
+
+The following is an example of a security dashboard created in Splunk. Splunk allows multiple searches, queries and visualisations to be combined into a single dashboard, giving analysts a centralised view of security activity.
+
+The dashboard can be used to monitor and analyse information such as intrusion attempts, alert severity, attack signatures, geographic sources and activity trends. Different panels can represent different searches or visualisations, allowing analysts to quickly identify patterns and areas requiring further investigation.
+
+**Example dashboard:**
+
+![Example Splunk Security Dashboard](https://www.splunk.com/content/dam/splunk2/en_us/images/solutions/security-monitoring/extensive-detections-dashboard-embelishment.jpg)
+
+*Figure: Example Splunk security dashboard demonstrating how multiple searches and visualisations can be combined to monitor and analyse security activity in a single interface.*
+
 ```
 
 A SOC dashboard could help analysts monitor authentication activity, security alerts, suspicious IP addresses and other important security metrics from one location.
