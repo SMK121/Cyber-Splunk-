@@ -908,7 +908,9 @@ The dashboard can be used to monitor and analyse information such as intrusion a
 
 **Example dashboard:**
 
-![Example Splunk Security Dashboard](https://www.splunk.com/content/dam/splunk2/en_us/images/solutions/security-monitoring/extensive-detections-dashboard-embelishment.jpg)
+![Example Splunk Security Dashboard](https://github.com/user-attachments/assets/b42b524e-0b1f-442e-859e-79185fdd6697)
+
+
 
 *Figure: Example Splunk security dashboard demonstrating how multiple searches and visualisations can be combined to monitor and analyse security activity in a single interface.*
 
