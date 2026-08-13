@@ -7,76 +7,73 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [How Everything Connects](#how-everything-connects)
-- [Where Splunk Fits](#where-splunk-fits)
-- [The Security Monitoring Pipeline](#the-security-monitoring-pipeline)
-- [Learning Objectives](#learning-objectives)
-
-- [What is a Security Operations Centre (SOC)?](#what-is-a-security-operations-centre-soc)
-  - [Key Functions](#key-functions)
+  - [How Everything Connects](#how-everything-connects)
+  - [Where Splunk Fits](#where-splunk-fits)
+  - [The Security Monitoring Pipeline](#the-security-monitoring-pipeline)
+  - [Learning Objectives](#learning-objectives)
+- [Security Operations Centre (SOC)](#security-operations-centre-soc)
+  - [What is a SOC?](#what-is-a-soc)
+  - [Key Functions of a SOC](#key-functions-of-a-soc)
   - [Common SOC Technologies](#common-soc-technologies)
   - [SOC Processes](#soc-processes)
-  - [SOC Challenges](#soc-challenges)
+  - [Common SOC Challenges](#common-soc-challenges)
   - [SOC Best Practices](#soc-best-practices)
   - [SOC Roles](#soc-roles)
   - [Threat Hunting](#threat-hunting)
-  - [Common Event Types to Look Out For](#common-event-types-to-look-out-for)
-
-- [What is SIEM?](#what-is-siem)
+  - [Common Security Event Types to Monitor](#common-security-event-types-to-monitor)
+- [Security Information and Event Management (SIEM)](#security-information-and-event-management-siem)
+  - [What is SIEM?](#what-is-siem)
   - [SIEM Analogy](#siem-analogy)
-  - [Examples of SIEM Software](#examples-of-siem-software)
-
+  - [Examples of SIEM Software (2026)](#examples-of-siem-software-2026)
 - [What is Splunk?](#what-is-splunk)
-  - [What Can Splunk Be Used For?](#what-can-splunk-be-used-for)
-  - [Why Use Splunk?](#why-use-splunk)
+  - [What can Splunk be used for?](#what-can-splunk-be-used-for)
+  - [Why use Splunk?](#why-use-splunk)
   - [What is a Splunk/SOC Analyst?](#what-is-a-splunksoc-analyst)
   - [Splunk Versions](#splunk-versions)
-
 - [Splunk Architecture](#splunk-architecture)
   - [Search Head](#search-head)
   - [Universal Forwarder](#universal-forwarder)
   - [Indexers](#indexers)
-
 - [Splunk Deployment Options](#splunk-deployment-options)
   - [Standalone Deployment](#standalone-deployment)
   - [Distributed Deployment](#distributed-deployment)
   - [Search Head Cluster](#search-head-cluster)
   - [Splunk Cloud Platform](#splunk-cloud-platform)
-
 - [Basic Splunk Terms](#basic-splunk-terms)
-
 - [What Type of Data Does Splunk Ingest?](#what-type-of-data-does-splunk-ingest)
-
 - [How Can Splunk Onboard and Ingest Data?](#how-can-splunk-onboard-and-ingest-data)
-
 - [What Are Events?](#what-are-events)
-
 - [What is SPL?](#what-is-spl)
   - [Basic SPL Searches](#basic-spl-searches)
   - [Basic SPL Transformations](#basic-spl-transformations)
   - [Basic SPL Visualisations](#basic-spl-visualisations)
   - [Example SPL Workflow](#example-spl-workflow)
-
 - [What Can You Produce in Splunk?](#what-can-you-produce-in-splunk)
   - [Dashboards](#dashboards)
-
-
-
+- [Splunk Apps vs Splunk Add-ons](#splunk-apps-vs-splunk-add-ons)
+- [Splunk Use Cases and Case Studies](#splunk-use-cases-and-case-studies)
+  - [Security / SOC](#security--soc)
+  - [IT Operations](#it-operations)
+  - [Business and Data Analysis](#business-and-data-analysis)
+  - [Other Uses](#other-uses)
+- [Best Practices for Securing Data on Splunk](#best-practices-for-securing-data-on-splunk)
+- [Splunk Certification Path](#splunk-certification-path)
+- [Encrypting Data in Splunk](#encrypting-data-in-splunk)
+  - [Encryption in Transit](#encryption-in-transit)
+  - [Encryption at Rest](#encryption-at-rest)
+- [AI with Splunk](#ai-with-splunk)
+- [Recommended Datasets for Splunk](#recommended-datasets-for-splunk)
+- [Summary](#summary)
 
 ---
-# Introduction
 
-As organisations become increasingly reliant on digital systems, they also become more vulnerable to cyber attacks such as ransomware, phishing, insider threats and data breaches. Every day, thousands or even millions of security events are generated across servers, applications, cloud platforms, endpoints and network devices.
+## Introduction
 
-Monitoring this enormous volume of data manually is impossible. Organisations therefore use a **Security Operations Centre (SOC)** supported by a **Security Information and Event Management (SIEM)** platform such as **Splunk** to detect, investigate and respond to cyber threats.
+As organisations rely more on digital systems, they become more exposed to cyber attacks such as ransomware, phishing, insider threats and data breaches — generating millions of security events a day across servers, applications, cloud platforms, endpoints and network devices. Monitoring that volume manually is impossible, so organisations use a **Security Operations Centre (SOC)** backed by a **Security Information and Event Management (SIEM)** platform such as **Splunk** to detect, investigate and respond to threats.
 
-Splunk enables security teams to collect logs from multiple sources, search and analyse large volumes of machine data, generate alerts for suspicious activity and provide dashboards that improve visibility across an organisation's IT environment.
+Splunk collects logs from multiple sources, searches and analyses large volumes of machine data, raises alerts on suspicious activity, and provides dashboards for visibility across the IT environment. This repository documents my learning journey through SOC operations, SIEM concepts, Splunk architecture, SPL, and practical security monitoring techniques.
 
-This repository documents my learning journey through SOC operations, SIEM concepts, Splunk architecture, Search Processing Language (SPL), and practical security monitoring techniques.
-
----
-
-## How Everything Connects
+### How Everything Connects
 
 ```text
                 Cyber Security
@@ -99,9 +96,7 @@ This repository documents my learning journey through SOC operations, SIEM conce
           Security Analysts Respond
 ```
 
----
-
-## Where Splunk Fits
+### Where Splunk Fits
 
 | Layer | Purpose | Example |
 |--------|---------|----------|
@@ -110,9 +105,7 @@ This repository documents my learning journey through SOC operations, SIEM conce
 | SIEM | Collects and analyses security logs | Splunk Enterprise Security |
 | Splunk | Searches, visualises and investigates machine data | Dashboards, alerts, reports |
 
----
-
-## The Security Monitoring Pipeline
+### The Security Monitoring Pipeline
 
 ```text
 Servers
@@ -149,15 +142,12 @@ SOC Analysts
 
 Investigate → Contain → Recover → Improve
 ```
-## Security Monitoring Pipeline Explained
 
 The security monitoring pipeline shows how security data moves through an organisation. Systems such as servers, applications, firewalls, cloud platforms and endpoints generate logs and events, which are collected by a SIEM platform such as Splunk.
 
 Splunk processes this data by collecting, indexing and analysing events to identify suspicious activity and generate alerts. SOC analysts then investigate these alerts, respond to confirmed threats, contain the impact, recover affected systems and improve security controls to prevent future incidents.
 
----
-
-## Learning Objectives
+### Learning Objectives
 
 This repository covers:
 
@@ -172,9 +162,9 @@ This repository covers:
 
 ---
 
-# Security Operations Centre (SOC)
+## Security Operations Centre (SOC)
 
-## What is a SOC?
+### What is a SOC?
 
 A **Security Operations Centre (SOC)** is a dedicated team responsible for monitoring, detecting, investigating and responding to cybersecurity threats within an organisation.
 
@@ -190,9 +180,7 @@ A SOC combines:
 
 Together, these allow organisations to identify suspicious activity before it becomes a major security incident.
 
----
-
-## Key Functions of a SOC
+### Key Functions of a SOC
 
 | Function | Description |
 |----------|-------------|
@@ -205,9 +193,7 @@ Together, these allow organisations to identify suspicious activity before it be
 | Digital Forensics | Analyses evidence from compromised systems |
 | Reporting | Creates security reports and metrics for stakeholders |
 
----
-
-# Common SOC Technologies
+### Common SOC Technologies
 
 A SOC uses multiple security technologies to provide visibility and protection.
 
@@ -222,9 +208,7 @@ A SOC uses multiple security technologies to provide visibility and protection.
 | SOAR | Automates security response actions | Splunk SOAR |
 | Threat Intelligence Platforms | Provides information about attackers and threats | MISP |
 
----
-
-# SOC Processes
+### SOC Processes
 
 SOC teams usually follow an incident response lifecycle:
 
@@ -248,9 +232,7 @@ SOC teams usually follow an incident response lifecycle:
          ▼
  Lessons Learned
 
-### Example:
-
-A user receives a phishing email:
+**Example:** A user receives a phishing email:
 
 1. Email security detects suspicious attachment
 2. SIEM creates an alert
@@ -260,9 +242,7 @@ A user receives a phishing email:
 6. Endpoint is cleaned
 7. Detection rules are improved
 
----
-
-# Common SOC Challenges
+### Common SOC Challenges
 
 | Challenge | Description |
 |-----------|-------------|
@@ -274,9 +254,7 @@ A user receives a phishing email:
 | Cloud Complexity | Hybrid and cloud environments increase visibility challenges |
 | Skills Shortage | Demand for cybersecurity professionals continues to grow |
 
----
-
-# SOC Best Practices
+### SOC Best Practices
 
 Effective SOC teams follow several best practices:
 
@@ -291,9 +269,7 @@ Effective SOC teams follow several best practices:
 - Monitor critical assets first
 - Review previous incidents to improve processes
 
----
-
-# SOC Roles
+### SOC Roles
 
 | Role | Responsibilities |
 |------|------------------|
@@ -306,19 +282,13 @@ Effective SOC teams follow several best practices:
 | Security Engineer | Designs and maintains security solutions |
 | SOC Manager | Manages SOC operations and reporting |
 
----
-
-# Threat Hunting
-
-## What is Threat Hunting?
+### Threat Hunting
 
 Threat hunting is a proactive security activity where analysts search for threats that may have avoided existing security controls.
 
 Unlike normal alert monitoring, threat hunting does not wait for an alert. Analysts investigate suspicious patterns and attacker behaviour.
 
----
-
-## Examples of Threat Hunting Activities
+**Examples of threat hunting activities:**
 
 | Investigation | Example |
 |-|-|
@@ -334,9 +304,7 @@ Threat hunters commonly use frameworks such as:
 - MITRE ATT&CK
 - Cyber Kill Chain
 
----
-
-# Common Security Event Types to Monitor
+### Common Security Event Types to Monitor
 
 SOC analysts commonly investigate:
 
@@ -355,9 +323,9 @@ SOC analysts commonly investigate:
 
 ---
 
-# Security Information and Event Management (SIEM)
+## Security Information and Event Management (SIEM)
 
-## What is SIEM?
+### What is SIEM?
 
 A **Security Information and Event Management (SIEM)** platform is a technology used to collect, store, analyse and monitor security data from multiple sources.
 
@@ -370,36 +338,13 @@ SIEM solutions allow organisations to:
 - Support investigations
 - Create security dashboards
 
----
+### SIEM Analogy
 
-# SIEM Analogy
+A SIEM can be compared to a **security control room in a large building**: CCTV, door access, alarms and guards each produce their own information, and the control room pulls it all together, analyses activity and alerts staff when something looks wrong.
 
-A SIEM can be compared to a **security control room in a large building**.
+A SIEM works the same way, collecting from servers, applications, endpoints, firewalls and cloud services and presenting it all to security analysts.
 
-A building has:
-
-- CCTV cameras
-- Door access systems
-- Alarm systems
-- Security guards
-
-Each system produces information.
-
-The control room collects everything together, analyses activity and alerts security staff when something suspicious happens.
-
-A SIEM works in the same way by collecting information from:
-
-- Servers
-- Applications
-- Endpoints
-- Firewalls
-- Cloud services
-
-and presenting it to security analysts.
-
----
-
-# Examples of SIEM Software (2026)
+### Examples of SIEM Software (2026)
 
 | SIEM Platform | Company |
 |--------------|---------|
@@ -413,7 +358,7 @@ and presenting it to security analysts.
 
 ---
 
-# What is Splunk?
+## What is Splunk?
 
 Splunk is a data analytics platform used to collect, search, analyse and visualise machine-generated data.
 
@@ -427,9 +372,7 @@ Although Splunk is widely used in cybersecurity, it can also support:
 
 Splunk turns large amounts of raw machine data into useful information that analysts can investigate.
 
----
-
-# What can Splunk be used for?
+### What can Splunk be used for?
 
 | Area | Example Use |
 |-|-|
@@ -440,9 +383,7 @@ Splunk turns large amounts of raw machine data into useful information that anal
 | Business Analytics | Understand customer behaviour |
 | Compliance | Produce audit reports |
 
----
-
-# Why use Splunk?
+### Why use Splunk?
 
 Organisations use Splunk because it provides:
 
@@ -454,9 +395,7 @@ Organisations use Splunk because it provides:
 - Historical investigation capability
 - Integration with many security tools
 
----
-
-# What is a Splunk/SOC Analyst?
+### What is a Splunk/SOC Analyst?
 
 A Splunk or SOC Analyst uses Splunk to monitor security events, investigate alerts and identify potential threats.
 
@@ -470,9 +409,7 @@ Typical responsibilities include:
 - Improving detection rules
 - Supporting incident response
 
----
-
-# Splunk Versions
+### Splunk Versions
 
 | Version | Description |
 |-|-|
@@ -482,7 +419,6 @@ Typical responsibilities include:
 | Splunk SOAR | Automates security response workflows |
 
 ---
-
 
 ## Splunk Architecture
 
@@ -774,29 +710,23 @@ SPL commands are commonly connected using the **pipe (`|`)** character.
 Search → Filter → Transform → Analyse → Visualise
 ```
 
----
+### Basic SPL Searches
 
-## Basic SPL Searches
-
-### Search an Index
-
-The following search returns events from the `main` index:
+**Search an index** — returns events from the `main` index:
 
 ```spl
 index=main
 ```
 
-### Search for Failed Windows Logins
+**Search for failed Windows logins:**
 
 ```spl
 index=windows EventCode=4625
 ```
 
-Event Code `4625` is commonly associated with failed Windows logon attempts.
+Event Code `4625` is commonly associated with failed Windows logon attempts. This type of search could help a SOC analyst investigate potential brute-force or account compromise activity.
 
-This type of search could help a SOC analyst investigate potential brute-force or account compromise activity.
-
-### Search for a Specific Host
+**Search for a specific host:**
 
 ```spl
 index=main host=server01
@@ -804,7 +734,7 @@ index=main host=server01
 
 This searches for events generated by `server01`.
 
-### Search for a Specific IP Address
+**Search for a specific IP address:**
 
 ```spl
 index=firewall src_ip="192.168.1.50"
@@ -812,7 +742,7 @@ index=firewall src_ip="192.168.1.50"
 
 This searches firewall data for events associated with the specified source IP address.
 
-### Search Using Multiple Conditions
+**Search using multiple conditions:**
 
 ```spl
 index=windows EventCode=4625 user="admin"
@@ -820,13 +750,11 @@ index=windows EventCode=4625 user="admin"
 
 This searches for failed logon events associated with the specified user.
 
----
-
-## Basic SPL Transformations
+### Basic SPL Transformations
 
 SPL can be used to transform raw events into useful statistics and summaries.
 
-### Count Events
+**Count events:**
 
 ```spl
 index=main
@@ -835,18 +763,16 @@ index=main
 
 This counts the number of events returned by the search.
 
-### Count Events by User
+**Count events by user:**
 
 ```spl
 index=windows
 | stats count by user
 ```
 
-This groups events by user and counts the number of events associated with each user.
+This groups events by user and counts the number of events associated with each user, which is useful for identifying accounts generating unusually high amounts of activity.
 
-This could be useful for identifying accounts generating unusually high amounts of activity.
-
-### Find Common Source IP Addresses
+**Find common source IP addresses:**
 
 ```spl
 index=firewall
@@ -855,7 +781,7 @@ index=firewall
 
 This identifies the source IP addresses appearing most frequently in the search results.
 
-### Display Specific Fields
+**Display specific fields:**
 
 ```spl
 index=windows
@@ -864,7 +790,7 @@ index=windows
 
 The `table` command displays selected fields in a table.
 
-### Sort Results
+**Sort results:**
 
 ```spl
 index=main
@@ -873,7 +799,7 @@ index=main
 
 The `sort` command can be used to order search results.
 
-### Count Events by Host
+**Count events by host:**
 
 ```spl
 index=main
@@ -882,24 +808,20 @@ index=main
 
 This can help identify which systems are generating the largest number of events.
 
----
-
-## Basic SPL Visualisations
+### Basic SPL Visualisations
 
 Splunk searches can also be used to create visual representations of data.
 
-### Events Over Time
+**Events over time:**
 
 ```spl
 index=main
 | timechart count
 ```
 
-The `timechart` command can be used to show how event volumes change over time.
+The `timechart` command can be used to show how event volumes change over time. The results can be displayed as a line or column chart.
 
-The results can be displayed as a line or column chart.
-
-### Events by Action
+**Events by action:**
 
 ```spl
 index=firewall
@@ -908,7 +830,7 @@ index=firewall
 
 The results could be displayed as a bar chart to compare different actions.
 
-### Events by User
+**Events by user:**
 
 ```spl
 index=windows
@@ -917,9 +839,7 @@ index=windows
 
 This can be displayed as a bar chart to compare activity between users.
 
----
-
-## Example SPL Workflow
+### Example SPL Workflow
 
 ```text
                     Raw Events
@@ -987,7 +907,7 @@ A SOC dashboard could help analysts monitor authentication activity, security al
 
 ## Splunk Apps vs Splunk Add-ons
 
-**Splunk Apps** and **Splunk Add-ons** both extend Splunk's functionality, but they have different purposes.
+**Splunk Apps** and **Splunk Add-ons** both extend Splunk's functionality, but for different purposes:
 
 | | Splunk App | Splunk Add-on |
 |---|---|---|
@@ -997,11 +917,7 @@ A SOC dashboard could help analysts monitor authentication activity, security al
 | **Data parsing** | May be included | Commonly provides parsing and field extraction |
 | **User interface** | Usually provides a user interface | Usually has limited or no user interface |
 
-### Simple Difference
-
-> **Apps help users work with and visualise data, while Add-ons help Splunk collect, understand and process data from specific sources.**
-
-For example, an Add-on may provide the configurations required to correctly ingest data from a particular security product, while an App may provide dashboards and searches for analysing that data.
+**Simple difference:** Apps help users work with and visualise data; Add-ons help Splunk collect, understand and process data from specific sources — e.g. an Add-on ingests data from a particular security product, while an App provides the dashboards and searches to analyse it.
 
 ---
 
@@ -1023,7 +939,7 @@ In a SOC, Splunk can be used to:
 - Create security dashboards
 - Generate alerts
 
-#### Example Security Workflow
+**Example security workflow:**
 
 ```text
 Multiple Failed Logins
