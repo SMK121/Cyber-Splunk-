@@ -902,9 +902,7 @@ This allows security analysts to quickly monitor the current security posture, i
 
 ### Example Splunk Dashboard
 
-The following is an example of a security dashboard created in Splunk. Splunk allows multiple searches, queries and visualisations to be combined into a single dashboard, giving analysts a centralised view of security activity.
-
-The dashboard can be used to monitor and analyse information such as intrusion attempts, alert severity, attack signatures, geographic sources and activity trends. Different panels can represent different searches or visualisations, allowing analysts to quickly identify patterns and areas requiring further investigation.
+The following image demonstrates how multiple security-related visualisations can be presented together within a Splunk dashboard.
 
 ![Example of a Splunk Security Dashboard](https://github.com/user-attachments/assets/b5a0e087-8c16-42c8-abf4-9065cebe81b6)
 
