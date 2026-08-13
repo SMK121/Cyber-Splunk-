@@ -985,4 +985,259 @@ A SOC dashboard could help analysts monitor authentication activity, security al
 
 ---
 
+## Splunk Apps vs Splunk Add-ons
 
+**Splunk Apps** and **Splunk Add-ons** both extend Splunk's functionality, but they have different purposes.
+
+| | Splunk App | Splunk Add-on |
+|---|---|---|
+| **Main purpose** | Provides functionality and user experience | Provides data integration and processing |
+| **Dashboards** | Commonly included | Usually not the main purpose |
+| **Data inputs** | May include them | Commonly provides inputs and configurations |
+| **Data parsing** | May be included | Commonly provides parsing and field extraction |
+| **User interface** | Usually provides a user interface | Usually has limited or no user interface |
+
+### Simple Difference
+
+> **Apps help users work with and visualise data, while Add-ons help Splunk collect, understand and process data from specific sources.**
+
+For example, an Add-on may provide the configurations required to correctly ingest data from a particular security product, while an App may provide dashboards and searches for analysing that data.
+
+---
+
+## Splunk Use Cases and Case Studies
+
+Splunk can be used across cybersecurity, IT operations, business analysis and other areas.
+
+### Security / SOC
+
+In a SOC, Splunk can be used to:
+
+- Monitor authentication activity
+- Detect brute-force attacks
+- Investigate suspicious IP addresses
+- Monitor endpoint activity
+- Detect unusual network behaviour
+- Support threat hunting
+- Investigate security incidents
+- Create security dashboards
+- Generate alerts
+
+#### Example Security Workflow
+
+```text
+Multiple Failed Logins
+          │
+          ▼
+      Splunk Search
+          │
+          ▼
+     Detection Rule
+          │
+          ▼
+        Alert
+          │
+          ▼
+     SOC Analyst
+          │
+          ▼
+     Investigation
+```
+
+Splunk can therefore help SOC teams move from:
+
+**Raw security events → Detection → Investigation → Response**
+
+### IT Operations
+
+Splunk can also be used by IT and operations teams to monitor infrastructure and applications.
+
+Examples include:
+
+- Server errors
+- Application failures
+- Network problems
+- System performance
+- Service availability
+- Troubleshooting incidents
+- Infrastructure monitoring
+
+This can help organisations identify problems before they significantly affect users or services.
+
+### Business and Data Analysis
+
+Splunk can analyse machine-generated business data to identify trends and patterns.
+
+Potential uses include:
+
+- Transaction monitoring
+- Customer activity analysis
+- Operational metrics
+- Business performance monitoring
+- Identifying unusual transaction behaviour
+- Tracking key performance indicators
+
+### Other Uses
+
+Additional Splunk use cases include:
+
+- Cloud monitoring
+- Application monitoring
+- Compliance
+- Fraud detection
+- DevOps monitoring
+- Infrastructure monitoring
+
+---
+
+## Best Practices for Securing Data on Splunk
+
+Splunk environments can contain sensitive information such as usernames, IP addresses, authentication records and application data. Protecting the Splunk environment is therefore important.
+
+Key practices include:
+
+- Apply **least privilege**
+- Use **Role-Based Access Control (RBAC)**
+- Enable strong authentication and MFA where available
+- Restrict administrative access
+- Encrypt communications between Splunk components
+- Protect sensitive indexes
+- Regularly patch Splunk components
+- Monitor administrative activity
+- Maintain appropriate data retention policies
+- Avoid unnecessarily collecting sensitive information
+- Restrict access to sensitive searches, dashboards and data
+
+Security controls should be appropriate to the organisation's environment, data sensitivity and compliance requirements.
+
+---
+
+## Splunk Certification Path
+
+Splunk provides training and certifications covering different levels of Splunk knowledge and specialist areas.
+
+A learning progression can move from foundational knowledge towards more advanced user, administration, development and security-focused skills.
+
+```text
+Splunk Fundamentals
+        │
+        ▼
+Core Splunk Knowledge
+        │
+        ▼
+Advanced Searching
+        │
+        ├───────────────┐
+        ▼               ▼
+ Administration      Development
+        │
+        ▼
+Advanced / Specialist Skills
+        │
+        ▼
+Security-focused Splunk Skills
+```
+
+For someone interested in SOC and cybersecurity, useful areas to develop alongside Splunk knowledge include:
+
+| Certification / Area | Relevance to SOC |
+|---|---|
+| **Splunk Certifications** | Develops practical knowledge of the Splunk platform |
+| **CompTIA Security+** | Provides broad cybersecurity fundamentals |
+| **CompTIA CySA+** | Focuses on security monitoring, detection and incident response |
+| **Microsoft Security Certifications** | Useful for Microsoft-focused SOC environments |
+| **Vendor-specific SIEM Training** | Develops knowledge of other security monitoring platforms |
+
+Certifications are most valuable when supported by practical labs, investigation exercises and experience analysing realistic security data.
+
+---
+
+## Encrypting Data in Splunk
+
+Encryption can help protect Splunk data both while it is being transmitted and while it is stored.
+
+### Encryption in Transit
+
+TLS can be used to protect communications between Splunk components and data sources.
+
+```text
+Data Source
+     │
+     │ Encrypted Connection
+     ▼
+Forwarder
+     │
+     │ Encrypted Connection
+     ▼
+Indexer
+```
+
+### Encryption at Rest
+
+Encryption at rest helps protect stored data from unauthorised access to the underlying storage.
+
+The exact encryption approach depends on the Splunk deployment, infrastructure and organisational security requirements.
+
+---
+
+## AI with Splunk
+
+AI is increasingly being incorporated into security operations and data analysis.
+
+Potential applications include:
+
+- Assisting analysts during investigations
+- Summarising security findings
+- Helping generate or explain searches
+- Identifying patterns across large datasets
+- Supporting detection engineering
+- Reducing repetitive analyst tasks
+
+AI should complement analyst judgement rather than completely replace human investigation and validation.
+
+---
+
+## Recommended Datasets for Splunk
+
+Practical datasets are useful for developing SPL and SOC investigation skills without requiring access to a production environment.
+
+| Dataset / Resource | Purpose |
+|---|---|
+| **Splunk Boss of the SOC (BOTS)** | Security investigation challenges |
+| **Splunk Security Research** | Security datasets and research |
+| **Windows Event Logs** | Authentication and endpoint investigations |
+| **Sysmon Data** | Process and endpoint activity |
+| **Network Logs** | Investigating network behaviour |
+| **Firewall Logs** | Analysing allowed and blocked connections |
+
+The **Boss of the SOC (BOTS)** datasets are particularly useful for practising security investigations because they provide realistic scenarios that require searching and analysing Splunk data.
+
+---
+
+## Summary
+
+This section covered the main technical concepts required to begin working with Splunk:
+
+- Splunk architecture
+- Search Heads
+- Universal Forwarders
+- Indexers
+- Splunk deployment options
+- Basic Splunk terminology
+- Data ingestion
+- Events
+- Search Processing Language (SPL)
+- Basic SPL searches
+- SPL transformations
+- SPL visualisations
+- Dashboards and other Splunk outputs
+- Splunk Apps and Add-ons
+- Security and SOC use cases
+- IT and business use cases
+- Splunk security best practices
+- Splunk certification pathways
+- Encryption
+- AI
+- Practical datasets
+
+These concepts provide a foundation for progressing from Splunk fundamentals into more practical **SOC monitoring, threat detection, SPL investigation and security analysis**.
