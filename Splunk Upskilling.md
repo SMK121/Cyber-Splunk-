@@ -166,6 +166,9 @@ This repository covers:
 
 ### What is a SOC?
 
+![Cyber Security and SOC workflow diagram](https://github.com/user-attachments/assets/88735339-8a6f-4a58-b46f-e757ea6ccbeb)
+
+
 A **Security Operations Centre (SOC)** is a dedicated team responsible for monitoring, detecting, investigating and responding to cybersecurity threats within an organisation.
 
 The main purpose of a SOC is to provide continuous visibility over an organisation's IT environment and reduce the impact of security incidents.
