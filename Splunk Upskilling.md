@@ -906,32 +906,7 @@ The following is an example of a security dashboard created in Splunk. Splunk al
 
 The dashboard can be used to monitor and analyse information such as intrusion attempts, alert severity, attack signatures, geographic sources and activity trends. Different panels can represent different searches or visualisations, allowing analysts to quickly identify patterns and areas requiring further investigation.
 
-**Example dashboard:**
-
 ![Example of a Splunk Security Dashboard](https://github.com/user-attachments/assets/b5a0e087-8c16-42c8-abf4-9065cebe81b6)
-
-
-*Figure: Example Splunk security dashboard demonstrating how multiple searches and visualisations can be combined to monitor and analyse security activity in a single interface.*
-
-```
-
-A SOC dashboard could help analysts monitor authentication activity, security alerts, suspicious IP addresses and other important security metrics from one location.
-
----
-
-## Splunk Apps vs Splunk Add-ons
-
-**Splunk Apps** and **Splunk Add-ons** both extend Splunk's functionality, but for different purposes:
-
-| | Splunk App | Splunk Add-on |
-|---|---|---|
-| **Main purpose** | Provides functionality and user experience | Provides data integration and processing |
-| **Dashboards** | Commonly included | Usually not the main purpose |
-| **Data inputs** | May include them | Commonly provides inputs and configurations |
-| **Data parsing** | May be included | Commonly provides parsing and field extraction |
-| **User interface** | Usually provides a user interface | Usually has limited or no user interface |
-
-**Simple difference:** Apps help users work with and visualise data; Add-ons help Splunk collect, understand and process data from specific sources — e.g. an Add-on ingests data from a particular security product, while an App provides the dashboards and searches to analyse it.
 
 ---
 
