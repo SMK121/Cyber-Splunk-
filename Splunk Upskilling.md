@@ -6,8 +6,6 @@
 
 ## Table of Contents
 
-## Table of Contents
-
 - [Introduction](#introduction)
 - [How Everything Connects](#how-everything-connects)
 - [Where Splunk Fits](#where-splunk-fits)
