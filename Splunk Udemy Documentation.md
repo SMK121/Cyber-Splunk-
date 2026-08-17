@@ -178,6 +178,7 @@ For example:
 ```spl
 index=* status=404
 ```
+---
 
 ### 7. Search Processing Language (SPL)
 
