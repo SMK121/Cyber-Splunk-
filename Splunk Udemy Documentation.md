@@ -136,6 +136,8 @@ Some of the main examples include:
 - **Tags** — Labels applied to specific field-value combinations to make them easier to identify and search.
 - **Macros** — Reusable pieces of SPL that can simplify searches and reduce repetition.
 
+---
+
 #### Practical Example: Login Failure Alert
 
 As part of working with Knowledge Objects, I created and tested an alert based on password/login failures.
