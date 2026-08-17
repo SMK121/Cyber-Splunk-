@@ -274,3 +274,183 @@ It can be used to investigate:
 - Patterns of suspicious behaviour
 
 This makes SPL an important skill for security monitoring, incident investigation and threat hunting.
+
+---
+
+### 8. Transforming Searches and Commands
+
+Transforming searches are used to take raw Splunk events and turn them into more useful summaries, statistics and results.
+
+Instead of simply viewing individual events, transforming commands allow users to analyse the data and identify patterns, trends and relationships within it.
+
+Transforming searches are useful when working with large amounts of data because they can summarise thousands of events into information that is easier to understand.
+
+#### What Are Transforming Commands Used For?
+
+Transforming commands can be used to:
+
+- Calculate statistics
+- Count events
+- Group results by fields
+- Compare values
+- Identify the most common activity
+- Analyse activity over time
+- Create tables and charts
+- Summarise large amounts of data
+
+Some commonly used transforming commands include:
+
+| Command | Purpose | Example |
+| :--- | :--- | :--- |
+| `stats` | Calculates statistics and groups results | `stats count by host` |
+| `chart` | Creates a table of results for reporting and visualisation | `chart count by host` |
+| `timechart` | Analyses data over time | `timechart count` |
+| `top` | Shows the most common values | `top src_ip` |
+
+For example:
+
+    index=* | stats count by host
+
+This counts the number of events associated with each host.
+
+The results can then be used to identify which hosts are generating the most activity.
+
+#### Why Transforming Searches Are Useful
+
+Transforming searches are particularly useful for security and IT analysis because analysts often need to understand patterns across large datasets rather than examine individual events.
+
+For example, an analyst could use a transforming search to identify:
+
+- The hosts generating the most events
+- The most active source IP addresses
+- Changes in activity over time
+- The frequency of specific events
+- Unusual increases in activity
+
+---
+
+### 9. Transactions and Event Analysis
+
+Splunk events can sometimes represent individual parts of a larger activity or sequence.
+
+The **`transaction`** command can be used to group related events together into a single transaction based on specified fields or conditions.
+
+This can make it easier to understand a sequence of activity rather than analysing each event individually.
+
+#### What Is the Transaction Command Used For?
+
+The `transaction` command can be useful when multiple events belong to the same logical activity.
+
+For example, a user's activity might involve:
+
+    Login Attempt
+        ↓
+    Authentication
+        ↓
+    Session Activity
+        ↓
+    Logout
+
+Looking at these events individually may not provide the full context. Grouping related events can help an analyst understand the overall sequence.
+
+For example:
+
+    index=* | transaction user
+
+This can group related events based on the `user` field.
+
+Transactions can be useful for:
+
+- Investigating user activity
+- Following sessions
+- Understanding sequences of events
+- Investigating authentication activity
+- Correlating related events
+- Supporting security investigations
+
+The `transaction` command should be used carefully, particularly with large datasets, as grouping large numbers of events can require significant resources.
+
+---
+
+### 10. Manipulating Data with SPL
+
+SPL can also be used to manipulate and filter search results so that the data becomes more useful for analysis.
+
+Commands such as **`eval`**, **`where`** and **`search`** can be used to modify fields, apply conditions and narrow down results.
+
+#### `eval`
+
+The `eval` command can be used to create new fields or perform calculations using existing fields.
+
+For example:
+
+    index=* | eval total=bytes_in+bytes_out
+
+This creates a new field called `total` by adding the values of `bytes_in` and `bytes_out`.
+
+`eval` can also be used to apply conditional logic.
+
+For example:
+
+    index=* | eval severity=if(status=404,"Warning","Normal")
+
+This creates a new `severity` field based on the value of the `status` field.
+
+#### `where`
+
+The `where` command is used to filter search results based on a condition.
+
+For example:
+
+    index=* | stats count by host | where count > 10
+
+This first counts events by host and then returns only hosts with more than 10 events.
+
+This can be useful when looking for activity that exceeds a particular threshold.
+
+#### `search`
+
+The `search` command can be used to search for or filter specific events.
+
+For example:
+
+    index=* | search status=404
+
+This filters the results to events where the `status` field has a value of `404`.
+
+A keyword can also be searched for:
+
+    index=* | search error
+
+This searches for events containing the keyword `error`.
+
+#### Using These Commands Together
+
+These commands can be combined to progressively analyse data.
+
+For example:
+
+    index=* | search status=404 | stats count by host | where count > 10
+
+This search:
+
+1. Searches the indexed data for events with a `404` status.
+2. Counts the matching events for each host.
+3. Filters the results to hosts with more than 10 matching events.
+
+Combining commands in this way allows an analyst to move from a large set of raw events towards a smaller set of results that may require further investigation.
+
+#### Security Analysis
+
+These commands are useful in security monitoring and investigation because they allow analysts to:
+
+- Filter relevant security events
+- Identify activity above a defined threshold
+- Create additional fields for analysis
+- Compare values
+- Investigate suspicious patterns
+- Reduce large datasets to more manageable results
+
+For example, repeated failed authentication attempts could be filtered and counted by source IP address to identify potentially suspicious activity.
+
+---
