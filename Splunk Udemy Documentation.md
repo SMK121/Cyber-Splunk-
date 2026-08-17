@@ -136,6 +136,4 @@ Some of the main examples include:
 - **Tags** — Labels applied to specific field-value combinations to make them easier to identify and search.
 - **Macros** — Reusable pieces of SPL that can simplify searches and reduce repetition.
 
-#### Reports
 
-A **report** is a saved search that can be run again at a later time.
