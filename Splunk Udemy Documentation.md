@@ -177,4 +177,41 @@ For example:
 
 ```spl
 index=* status=404
+```
+
+### 7. Search Processing Language (SPL)
+
+**Search Processing Language (SPL)** is Splunk's search language used to search, filter, transform and analyse machine-generated data.
+
+SPL allows users to work with large amounts of indexed data and turn raw events into useful information. Instead of manually reviewing individual log entries, SPL can be used to identify specific events, filter results, calculate statistics, group related activity and identify patterns.
+
+SPL is one of the core skills required to use Splunk effectively, particularly when working with security monitoring, incident investigation, threat hunting and operational troubleshooting.
+
+#### What Is SPL Used For?
+
+SPL can be used to:
+
+- Search indexed data
+- Filter events
+- Search specific fields
+- Extract information from events
+- Create calculated fields
+- Perform statistical calculations
+- Group events together
+- Sort results
+- Remove duplicate results
+- Rename fields
+- Identify patterns and trends
+- Investigate security incidents
+- Build reports and dashboards
+- Create searches for alerts
+- Support threat hunting
+
+For example:
+
+```spl
+index=* error
+
+```
+
 
