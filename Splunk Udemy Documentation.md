@@ -156,3 +156,25 @@ This demonstrates how Knowledge Objects can be used to move from simply searchin
 Alerts are particularly useful in a SOC because analysts do not need to continuously run the same search manually. Splunk can monitor the search conditions and notify or trigger an action when the defined criteria are met.
 
 
+---
+
+### 6. Fields
+
+Fields are named pieces of information extracted from Splunk events. They allow specific information within an event to be searched, filtered and analysed.
+
+Examples of commonly used fields include:
+
+- `host` — Identifies the host associated with an event
+- `source` — Identifies where the event originated
+- `sourcetype` — Identifies the type or format of the data
+- `src_ip` — Source IP address
+- `user` — Username
+- `status` — Status or result of an activity
+
+Fields are important because they allow searches to target specific information rather than searching through entire raw events.
+
+For example:
+
+```spl
+index=* status=404
+
