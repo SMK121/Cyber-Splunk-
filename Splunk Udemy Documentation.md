@@ -215,4 +215,65 @@ index=* error
 
 ```
 
+This searches the indexed data for events containing the keyword error.
+
+Basic SPL Structure
+
+SPL searches can be built by combining a search with additional commands.
+
+The pipe character (|) passes the results of one command into another command.
+
+For example:
+
+index=* | stats count
+
+This searches the indexed data and then uses the stats command to count the number of events returned.
+
+Commands can be chained together to perform more detailed analysis:
+
+index=* | stats count by host | sort -count
+
+This counts the events associated with each host and then sorts the results from highest to lowest.
+
+Common SPL Commands
+
+Some of the basic commands used when working with SPL include:
+
+Command	Purpose	Example
+search	Searches or filters events	search status=404
+stats	Calculates statistics	stats count by host
+sort	Sorts results	sort -count
+table	Displays selected fields	table host, user, status
+dedup	Removes duplicate results	dedup src_ip
+top	Shows the most common values	top src_ip
+
+These commands can be combined to search and analyse data more efficiently.
+
+Practical SPL Example
+
+Using the practice data that has been ingested into Splunk, SPL can be used to investigate the available events.
+
+For example:
+
+index=* | stats count by host
+
+This groups the events by host and shows how many events are associated with each one.
+
+A more focused search can then be built as I progress through the practical work and learn additional SPL commands.
+
+SPL in Security Analysis
+
+SPL is particularly useful in a Security Operations Centre (SOC) because analysts often need to investigate large volumes of security and system events.
+
+It can be used to investigate:
+
+Failed login attempts
+Suspicious IP addresses
+Unusual user activity
+Network activity
+System errors
+Potential indicators of compromise
+Patterns of suspicious behaviour
+
+This makes SPL an important skill for security monitoring, incident investigation and threat hunting.
 
