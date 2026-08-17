@@ -65,43 +65,77 @@ This confirmed that the practice data had been successfully uploaded and was ava
 
 ---
 
+---
+
 ### 4. Searching and Basic Navigation
 
-The next stage of the course introduces the **Search & Reporting** interface and the basics of searching and navigating within Splunk.
+Searching is one of the fundamental functions of Splunk. Once data has been ingested and indexed, searches allow users to find, investigate and analyse events within that data.
 
-This section focuses on understanding how to:
+The **Search & Reporting** interface is the main area used to search and analyse data in Splunk. It provides the search bar, time range controls, search results, event details and field information.
 
-- Navigate the Splunk Search & Reporting interface
-- Perform basic searches across ingested data
-- Use time ranges to control which events are returned
-- View and examine individual events
-- Identify and work with fields within events
-- Review search results and refine searches
-- Understand basic Splunk data concepts such as **host**, **source** and **sourcetype**
+Searching is useful because Splunk can store and process very large volumes of machine-generated data. Instead of manually reviewing individual log files, users can query the data and quickly identify events that match specific criteria.
 
-Basic searching is an important part of working with Splunk because it provides the foundation for investigating and analysing machine-generated data.
+#### What Is Searching Used For?
 
-The course will build on these fundamentals later by introducing **Search Processing Language (SPL)** and more advanced methods of searching, filtering and analysing data.
+Splunk searches can be used for many different purposes, including:
 
+- Finding specific events
+- Investigating security incidents
+- Troubleshooting systems and applications
+- Monitoring user activity
+- Investigating network activity
+- Identifying errors and failures
+- Searching for suspicious behaviour
+- Supporting incident response
+- Analysing trends and patterns
+- Monitoring operational activity
+
+For example, a security analyst could search for failed authentication attempts and then investigate whether multiple failures came from the same user or IP address.
+
+An IT support or infrastructure team could search application or system logs to identify errors occurring during a particular period.
 
 ---
 
+
 ### 5. Knowledge Objects
 
-**Knowledge Objects (KOs)** are reusable configurations in Splunk that help users organise, search, analyse and present data more efficiently.
+**Knowledge Objects (KOs)** are reusable configurations in Splunk that help users organise, search, analyse, enrich and present data.
 
-They allow information or search logic to be saved and reused rather than having to recreate the same configuration each time.
+They are created from information or search logic that users want to save and reuse. Instead of repeatedly creating the same search or configuration from scratch, a Knowledge Object can preserve it for future use.
 
-Examples of Knowledge Objects include:
+Knowledge Objects are particularly useful in environments where multiple analysts or teams work with the same Splunk data because they can provide a consistent way of searching, categorising and presenting information.
 
-- **Reports** — Saved searches that can be run again or used as the basis for other Splunk features.
-- **Dashboards** — Collections of visualisations and panels used to present and monitor data.
-- **Alerts** — Configured searches that can trigger an action when specific conditions are met.
-- **Lookups** — External data that can be used to enrich or add context to Splunk events.
-- **Calculated fields** — Fields created using expressions to derive additional information from existing data.
-- **Event types** — Saved search definitions used to categorise events.
-- **Tags** — Labels applied to specific field-value pairs to make data easier to identify and search.
+#### What Are Knowledge Objects Used For?
 
-Knowledge Objects are useful because they allow searches, classifications, enrichments and visualisations to be **saved, reused and shared** within Splunk.
+Knowledge Objects can be used to:
 
-The course introduces Knowledge Objects and then demonstrates how they can be created and used within the Splunk environment.
+- Save frequently used searches
+- Create reports
+- Build dashboards
+- Create alerts
+- Categorise events
+- Add context to existing data
+- Create reusable search components
+- Enrich events with additional information
+- Standardise how teams work with data
+
+For example, if a SOC analyst regularly searches for failed authentication attempts, the search can be saved as a report or used as part of an alert rather than being recreated every time.
+
+#### Common Knowledge Objects
+
+Splunk provides several types of Knowledge Objects.
+
+Some of the main examples include:
+
+- **Reports** — Saved searches that can be run again and reused for reporting or other Splunk features.
+- **Dashboards** — Collections of panels and visualisations used to present information in an easily understandable format.
+- **Alerts** — Searches that run based on defined conditions and can trigger actions when those conditions are met.
+- **Lookups** — Additional data that can be combined with Splunk events to provide more context.
+- **Calculated Fields** — Fields created from existing data using expressions or calculations.
+- **Event Types** — Saved definitions used to categorise related events.
+- **Tags** — Labels applied to specific field-value combinations to make them easier to identify and search.
+- **Macros** — Reusable pieces of SPL that can simplify searches and reduce repetition.
+
+#### Reports
+
+A **report** is a saved search that can be run again at a later time.
