@@ -456,3 +456,97 @@ These commands are useful in security monitoring and investigation because they 
 For example, repeated failed authentication attempts could be filtered and counted by source IP address to identify potentially suspicious activity.
 
 ---
+
+### 11. Lookups
+
+A **lookup** in Splunk allows additional information stored outside of the original event data to be matched with Splunk events. This can add useful context to existing data and make searches and investigations more informative.
+
+For example, a lookup could contain information such as usernames, departments, asset details, IP addresses or other reference data. This information can then be matched against fields in Splunk events.
+
+#### Why Are Lookups Useful?
+
+Lookups can be used to:
+
+- Add additional context to events
+- Enrich existing Splunk data
+- Associate information with existing fields
+- Filter and search reference data
+- Identify users or systems using additional information
+- Make search results easier to understand
+- Support security investigations
+
+#### Practical Lookup Exercise
+
+As part of the practical work, I used a provided `mockdata.csv` file to create and use a lookup in Splunk.
+
+The CSV contained a list of people and associated information, including fields such as:
+
+- First name
+- Last name
+- IP address
+- Latitude
+- Longitude
+- State
+
+The file was uploaded through the Splunk administration interface under:
+
+**Settings → Lookups**
+
+It was then configured as a lookup table so that the information could be accessed and used within Splunk searches.
+
+The lookup data could then be searched and filtered using its available fields.
+
+For example, I used the **State** field to filter the lookup data for:
+
+    State = New York
+
+This returned the people in the lookup data associated with New York and demonstrated how specific information could be retrieved from the lookup table.
+
+![Splunk Lookup CSV](https://github.com/user-attachments/assets/847558b0-de75-423f-afbf-2b651e28994d)
+
+
+#### Lookup Definition
+
+The lookup was then configured through the **Lookup Definitions** settings in Splunk.
+
+The definition was configured using the administrative settings, including the appropriate **owner** and lookup configuration. This allowed the lookup to be referenced from the Search & Reporting interface.
+
+![Splunk Lookup Definition](https://github.com/user-attachments/assets/2fd97e9f-212c-4def-aa64-333737d4fdd8)
+
+
+#### Using the Lookup with Splunk Data
+
+After configuring the lookup definition, I used the lookup alongside the existing `web` data in the **Search & Reporting** interface.
+
+The following search was used:
+
+    index=web
+    | table productId
+    | dedup productId
+
+This searches the `web` index, displays the `productId` field and removes duplicate product IDs.
+
+The search returned a list of unique product IDs, including:
+
+- BS-AG-G09
+- SF-BVS-G01
+- MB-AG-G07
+- WC-SH-G04
+- SC-MG-G10
+- DB-SG-G01
+- MB-AG-T01
+- FS-SG-G03
+- DC-SG-G02
+- WC-SH-A01
+- PZ-SG-G05
+- WC-SH-T02
+- WC-SH-A02
+- FI-AG-G08
+- CU-PG-G06
+- SF-BVS-01
+
+This demonstrated how lookup definitions can be configured and then used alongside indexed Splunk data during searches.
+
+The practical exercise provided experience with uploading external CSV data, configuring a lookup definition and using lookup-related data within Splunk searches.
+
+Lookups are particularly useful in security operations because reference data can provide additional context when investigating events, users, IP addresses or other indicators.
