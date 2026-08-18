@@ -511,8 +511,6 @@ The lookup was then configured through the **Lookup Definitions** settings in Sp
 
 The definition was configured using the administrative settings, including the appropriate **owner** and lookup configuration. This made the uploaded CSV available as a defined lookup within Splunk.
 
-![Splunk Lookup Definition](https://github.com/user-attachments/assets/2fd97e9f-212c-4def-aa64-333737d4fdd8)
-
 #### Searching and Filtering Splunk Data
 
 I then used the **Search & Reporting** interface to work with the indexed `web` data.
@@ -543,6 +541,8 @@ The search returned a list of unique product IDs, including:
 - FI-AG-G08
 - CU-PG-G06
 - SF-BVS-01
+
+![Splunk Search & Reporting](https://github.com/user-attachments/assets/2fd97e9f-212c-4def-aa64-333737d4fdd8)
 
 This demonstrated how SPL can be used to select specific fields and remove duplicate values from indexed data.
 
