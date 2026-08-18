@@ -502,7 +502,7 @@ For example, I used the **State** field to filter the lookup data for:
 
 This returned the people in the lookup data associated with New York and demonstrated how specific information could be retrieved from the lookup table.
 
-![Splunk Lookup CSV](https://github.com/user-attachments/assets/847558b0-de75-423f-afbf-2b651e28994d)
+<img width="11" height="12" alt="image" src="https://github.com/user-attachments/assets/847558b0-de75-423f-afbf-2b651e28994d" />
 
 
 #### Lookup Definition
