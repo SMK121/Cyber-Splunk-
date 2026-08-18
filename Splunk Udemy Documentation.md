@@ -557,6 +557,10 @@ For example, a SOC dashboard could display event activity, failed login attempts
 
 I created a dashboard to monitor **total event activity over the previous three days** using Splunk's internal data.
 
+![Splunk Dashboard - Total Events](https://github.com/user-attachments/assets/a2dcaa88-5087-4bdc-bc77-22715992a267)
+
+---
+
 The dashboard was based on the following SPL search:
 
 ```spl
@@ -565,7 +569,7 @@ index="_internal" sourcetype=splunkd
 | timechart count
 | trendline sma5(count) as "Our Moving Average of Total Events"
 
-![Splunk Dashboard - Total Events](https://github.com/user-attachments/assets/a2dcaa88-5087-4bdc-bc77-22715992a267)
+
 ```
 
 ---
