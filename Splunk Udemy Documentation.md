@@ -505,19 +505,17 @@ This returned the people in the lookup data associated with New York and demonst
 ![Splunk Lookup CSV](https://github.com/user-attachments/assets/7fd9547b-9707-440f-b272-59209bb74fc4)
 
 
-
 #### Lookup Definition
 
 The lookup was then configured through the **Lookup Definitions** settings in Splunk.
 
-The definition was configured using the administrative settings, including the appropriate **owner** and lookup configuration. This allowed the lookup to be referenced from the Search & Reporting interface.
+The definition was configured using the administrative settings, including the appropriate **owner** and lookup configuration. This made the uploaded CSV available as a defined lookup within Splunk.
 
 ![Splunk Lookup Definition](https://github.com/user-attachments/assets/2fd97e9f-212c-4def-aa64-333737d4fdd8)
 
+#### Searching and Filtering Splunk Data
 
-#### Using the Lookup with Splunk Data
-
-After configuring the lookup definition, I used the lookup alongside the existing `web` data in the **Search & Reporting** interface.
+I then used the **Search & Reporting** interface to work with the indexed `web` data.
 
 The following search was used:
 
@@ -546,8 +544,8 @@ The search returned a list of unique product IDs, including:
 - CU-PG-G06
 - SF-BVS-01
 
-This demonstrated how lookup definitions can be configured and then used alongside indexed Splunk data during searches.
+This demonstrated how SPL can be used to select specific fields and remove duplicate values from indexed data.
 
-The practical exercise provided experience with uploading external CSV data, configuring a lookup definition and using lookup-related data within Splunk searches.
+Overall, the practical exercise provided experience with uploading external CSV data, filtering lookup information, configuring a lookup definition and working with indexed Splunk data through the Search & Reporting interface.
 
 Lookups are particularly useful in security operations because reference data can provide additional context when investigating events, users, IP addresses or other indicators.
