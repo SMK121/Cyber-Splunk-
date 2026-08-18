@@ -43,27 +43,29 @@ The data was successfully ingested and made available for searching and analysis
 ---
  
 ### 3. Verifying the Data
- 
-After uploading the practice data, I used the Splunk Search & Reporting interface to verify that the data had been successfully ingested.
- 
+
+After uploading the practice data, I used the **Splunk Search & Reporting** interface to verify that the data had been successfully ingested.
+
 I used the following search:
- 
-```text
+
+```
 index=*
 ```
- 
+
 This allowed me to view the available data and confirm that the uploaded practice dataset was accessible within Splunk.
- 
+
+The screenshot below shows the **Search & Reporting interface, the search query, and the resulting events** returned from the practice dataset:
+
+![Splunk Search & Reporting showing ingested practice data](https://github.com/user-attachments/assets/c229c43b-3f2f-4cee-9e2d-2d0fbcdc150c)
+
 The search results showed the different data sources that had been ingested, including:
- 
-- web1
-- web2
-- web3
-- cisco
+
+* `web1`
+* `web2`
+* `web3`
+* `cisco`
+
 This confirmed that the practice data had been successfully uploaded and was available to work with in Splunk.
-
-
----
 
 ---
 
