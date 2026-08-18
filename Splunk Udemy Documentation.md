@@ -525,23 +525,6 @@ This searches the `web` index, displays the `productId` field and removes duplic
 
 The search returned a list of unique product IDs, including:
 
-- BS-AG-G09
-- SF-BVS-G01
-- MB-AG-G07
-- WC-SH-G04
-- SC-MG-G10
-- DB-SG-G01
-- MB-AG-T01
-- FS-SG-G03
-- DC-SG-G02
-- WC-SH-A01
-- PZ-SG-G05
-- WC-SH-T02
-- WC-SH-A02
-- FI-AG-G08
-- CU-PG-G06
-- SF-BVS-01
-
 ![Splunk Search & Reporting](https://github.com/user-attachments/assets/2fd97e9f-212c-4def-aa64-333737d4fdd8)
 
 This demonstrated how SPL can be used to select specific fields and remove duplicate values from indexed data.
