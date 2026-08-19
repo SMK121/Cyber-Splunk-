@@ -718,3 +718,57 @@ Once created, the macro can be called from an SPL search using the macro's name,
 This demonstrated how macros can make SPL searches more efficient, reusable and easier to maintain, particularly when the same search logic is required across multiple searches.
 
 ---
+
+### 17. Macros
+
+A **Splunk macro** is a reusable piece of SPL that can be inserted into searches. Macros are useful for simplifying complex or repetitive search logic and making searches easier to maintain.
+
+Instead of repeatedly writing the same SPL, a macro can store the search logic and be called whenever it is needed.
+
+#### Why Are Macros Useful?
+
+Macros can be used to:
+
+- Reuse common SPL search logic
+- Reduce repetition in searches
+- Simplify complex searches
+- Make searches easier to read
+- Standardise commonly used search logic
+- Make changes easier to maintain
+
+For example, if the same search and analysis is used across multiple searches, the search logic can be stored in a macro and then referenced whenever required.
+
+#### Practical Macro Exercise
+
+I created a macro called **`salesmade`** to store a reusable SPL search for purchase activity in the practice `web` data.
+
+The macro definition was:
+
+```spl
+index=web action=purchase
+| stats count by host
+| addtotals col=t row=f fieldname="Total" labelfield=host count
+```
+
+---
+The search looks for events where the action field is set to purchase, counts the purchase events by host and adds a total to the results.
+
+After creating the macro, I tested it directly in the Search & Reporting interface by entering:
+
+`salesmade`
+
+The macro successfully expanded and executed the saved SPL, returning the number of purchase events for each web server.
+
+The results showed:
+
+![Splunk Salesmade Macro Results](https://github.com/user-attachments/assets/a5bb25fe-4ea5-4a55-bc0f-8dd22237e35e)
+
+web1 — 2,041 purchase events
+web2 — 1,887 purchase events
+web3 — 1,809 purchase events
+
+This practical exercise demonstrated how macros can store reusable SPL logic and allow the same search functionality to be called without manually entering the complete search each time.
+
+Macros can be particularly useful in larger Splunk environments where analysts regularly use the same search logic across different searches, reports, dashboards and investigations.
+
+---
