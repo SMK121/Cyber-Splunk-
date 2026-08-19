@@ -874,7 +874,7 @@ This makes CIM an important concept when working with Splunk security monitoring
 
 ## Conclusion
 
-This project provided practical experience with **Splunk**, **Search Processing Language (SPL)**, data analysis and core Security Operations Centre (SOC) concepts.
+This Course and Project provided practical experience with **Splunk**, **Search Processing Language (SPL)**, data analysis and core Security Operations Centre (SOC) concepts.
 
 The practical work covered searching and analysing indexed data, using SPL commands, enriching events with lookups, creating dashboards, configuring alerts and working with reusable search macros. It also introduced more advanced Splunk concepts including datamodels, data normalization and the Common Information Model (CIM).
 
