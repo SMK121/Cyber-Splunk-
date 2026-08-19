@@ -772,3 +772,114 @@ This practical exercise demonstrated how macros can store reusable SPL logic and
 Macros can be particularly useful in larger Splunk environments where analysts regularly use the same search logic across different searches, reports, dashboards and investigations.
 
 ---
+### 18. Datamodels
+
+A **Splunk data model** is a structured representation of data that organises related events and fields into a consistent format. Data models make it easier to search and analyse specific types of activity without having to work directly with the raw event structure every time.
+
+Data models can contain datasets that represent different types of activity, such as authentication, network traffic, web activity or other security-related events.
+
+#### Why Are Datamodels Useful?
+
+Datamodels can be used to:
+
+- Organise related events and fields
+- Provide a consistent structure for searching data
+- Simplify searches across different data sources
+- Improve the way security data is analysed
+- Support faster searches using accelerated data models
+- Support dashboards, reports and security investigations
+- Provide structured data for other Splunk features
+
+#### Searching Datamodels
+
+Splunk provides the `datamodel` command to search and explore data models.
+
+A datamodel search can be used to retrieve structured information from a particular dataset rather than searching raw events directly.
+
+For example:
+
+```spl
+| datamodel Web Web search
+```
+
+---
+The exact datamodel and dataset available will depend on the data and applications configured in the Splunk environment.
+
+Practical Datamodel Exercise
+
+I explored how datamodels can be searched in Splunk and how structured datasets can be used to analyse related activity.
+
+This demonstrated how datamodels can provide a more structured approach to searching and analysing Splunk data, particularly when working with large amounts of security-related information.
+
+Datamodels are particularly useful in security operations because they provide a consistent structure for analysing different types of activity and can be used as a foundation for more advanced security searches.
+
+---
+
+### 19. Common Information Model (CIM)
+
+The **Common Information Model (CIM)** is a standard used by Splunk to provide a consistent structure for data from different sources.
+
+Different systems and applications can use different field names for the same type of information. CIM helps normalise these fields into a common structure so that searches and security applications can work more consistently across different data sources.
+
+For example, different data sources might record information about a source IP address using different field names. CIM provides standardised fields that allow the same type of information to be searched consistently.
+
+#### Why Is CIM Useful?
+
+CIM can be used to:
+
+- Standardise fields across different data sources
+- Normalise security-related event data
+- Make searches more consistent
+- Support cross-source analysis
+- Improve compatibility with Splunk security applications
+- Support Splunk Enterprise Security
+- Make dashboards and reports more consistent
+- Simplify searches across different technologies
+
+#### CIM and Data Normalization
+
+CIM works closely with **data normalization**. Raw data from different systems may have different structures and field names, so the data needs to be mapped to the appropriate CIM fields.
+
+This allows events from different sources to be analysed using common field names and structures.
+
+For example:
+
+**Different data sources → Normalized fields → CIM data model → Consistent searches**
+
+#### CIM Add-on
+
+Splunk provides CIM-compatible add-ons and tools that help map incoming data to the appropriate CIM fields.
+
+The **CIM Add-on Builder** can also be used to create or customise mappings for data sources that do not already have suitable CIM mappings.
+
+For this project, the main focus is understanding how CIM standardises data and why this is useful for security monitoring rather than building a custom CIM add-on.
+
+#### CIM in Security Analysis
+
+CIM is particularly important in a **Security Operations Centre (SOC)** because security analysts may need to investigate data from many different technologies and vendors.
+
+Using a common data structure allows analysts to perform more consistent searches across areas such as:
+
+- Authentication
+- Network traffic
+- Web activity
+- Endpoint activity
+- DNS activity
+- Firewall activity
+- Intrusion detection
+
+This makes CIM an important concept when working with Splunk security monitoring and **Splunk Enterprise Security**.
+
+---
+
+## Conclusion
+
+This project provided practical experience with **Splunk**, **Search Processing Language (SPL)**, data analysis and core Security Operations Centre (SOC) concepts.
+
+The practical work covered searching and analysing indexed data, using SPL commands, enriching events with lookups, creating dashboards, configuring alerts and working with reusable search macros. It also introduced more advanced Splunk concepts including datamodels, data normalization and the Common Information Model (CIM).
+
+Through the practical exercises, I developed a better understanding of how Splunk can be used to collect, search, analyse and visualise machine-generated data and support security monitoring and investigation.
+
+The project also provided hands-on experience working with Splunk's interface, configuration settings and Knowledge Objects, helping to build a foundation for further development in **SOC analysis, SIEM technologies, incident investigation and threat detection**.
+
+---
