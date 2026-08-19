@@ -685,3 +685,36 @@ I explored how tags and event types can be used to organise and categorise Splun
 This demonstrated how Knowledge Objects can add meaning and context to existing events, making related activity easier to identify and search for.
 
 Tags and event types can be particularly useful in security operations when analysts need to consistently categorise users, systems, network activity or other security-related events.
+
+---
+
+### 17. Macros
+
+A **Splunk macro** is a reusable piece of SPL that can be inserted into searches. Macros are useful for simplifying complex or repetitive search logic and making searches easier to maintain.
+
+Instead of repeatedly writing the same SPL, a macro can store the search logic and be called whenever it is needed.
+
+#### Why Are Macros Useful?
+
+Macros can be used to:
+
+- Reuse common SPL search logic
+- Reduce repetition in searches
+- Simplify complex searches
+- Make searches easier to read
+- Standardise commonly used search logic
+- Make changes easier to maintain
+
+For example, if the same search filter is used across multiple searches, the filter can be stored in a macro and then referenced whenever required.
+
+#### Practical Exercise
+
+I explored how macros can be created and used within Splunk searches.
+
+Macros can be created through **Settings → Advanced Search → Search Macros**, where the search logic, name and other settings can be configured.
+
+Once created, the macro can be called from an SPL search using the macro's name, allowing the saved search logic to be reused without having to manually enter it each time.
+
+This demonstrated how macros can make SPL searches more efficient, reusable and easier to maintain, particularly when the same search logic is required across multiple searches.
+
+---
