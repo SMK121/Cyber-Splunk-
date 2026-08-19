@@ -587,4 +587,31 @@ The completed dashboard provided a graphical view of the total event activity an
 
 This practical exercise demonstrated how SPL searches can be converted into visualisations and added to dashboards to make Splunk data easier to monitor, analyse and interpret.
 
+---
+### 14. Reports and Drilldowns
 
+**Reports** in Splunk are saved searches that can be run again when the same information is needed. They are useful for regularly monitoring activity, analysing data and sharing useful search results with other users.
+
+**Drilldowns** allow users to investigate a specific result in more detail. For example, a user could select a value, chart or table entry from a dashboard and use a drilldown to open a more detailed search related to that result.
+
+#### Why Are Reports and Drilldowns Useful?
+
+Reports and drilldowns can be used to:
+
+- Save frequently used searches
+- Reuse searches for regular analysis
+- Monitor important activity
+- Present search results in a structured way
+- Investigate specific results in more detail
+- Move from high-level information to the underlying events
+- Support security investigations and troubleshooting
+
+For example, a SOC analyst could have a report showing failed login attempts. A drilldown could then allow the analyst to select a particular user or IP address and investigate the related events in more detail.
+
+#### Practical Exercise
+
+I explored how searches can be saved as reports and how drilldowns can be used to investigate specific results.
+
+This demonstrated how Splunk can be used to move from a saved search or high-level visualisation into more detailed event information, making it easier to investigate activity without having to manually create a new search each time.
+
+Reports and drilldowns are particularly useful when working with dashboards and security monitoring because they allow analysts to quickly move from an overview of activity to more detailed investigation.
