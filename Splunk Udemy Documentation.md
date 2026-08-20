@@ -5,6 +5,32 @@
 This repository documents my practical learning and hands-on work while completing the **Splunk: Zero to Power User** Udemy course.
  
 The course covers Splunk fundamentals, data ingestion, searching, Search Processing Language (SPL), data analysis, visualisation, dashboards, alerts, data models and the Common Information Model (CIM).
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Practical Learning](#practical-learning)
+  - [1. Splunk Installation](#1-splunk-installation)
+  - [2. Practice Data](#2-practice-data)
+  - [3. Verifying the Data](#3-verifying-the-data)
+  - [4. Searching and Basic Navigation](#4-searching-and-basic-navigation)
+  - [5. Knowledge Objects](#5-knowledge-objects)
+  - [6. Fields](#6-fields)
+  - [7. Search Processing Language (SPL)](#7-search-processing-language-spl)
+  - [8. Transforming Searches and Commands](#8-transforming-searches-and-commands)
+  - [9. Transactions and Event Analysis](#9-transactions-and-event-analysis)
+  - [10. Manipulating Data with SPL](#10-manipulating-data-with-spl)
+  - [11. Lookups](#11-lookups)
+  - [12. Dashboards](#12-dashboards)
+  - [13. Reports and Drilldowns](#13-reports-and-drilldowns)
+  - [14. Alerts](#14-alerts)
+  - [15. Tags and Event Types](#15-tags-and-event-types)
+  - [16. Macros](#16-macros)
+  - [17. Datamodels](#17-datamodels)
+  - [18. Common Information Model (CIM)](#18-common-information-model-cim)
+- [Conclusion](#conclusion)
  
 ---
  
