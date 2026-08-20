@@ -883,3 +883,4 @@ Through the practical exercises, I developed a better understanding of how Splun
 The project also provided hands-on experience working with Splunk's interface, configuration settings and Knowledge Objects, helping to build a foundation for further development in **SOC analysis, SIEM technologies, incident investigation and threat detection**.
 
 ---
+
