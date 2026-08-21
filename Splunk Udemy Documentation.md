@@ -38,7 +38,7 @@ The course covers Splunk fundamentals, data ingestion, searching, Search Process
  
 ### 1. Splunk Installation
  
-I began by downloading and installing Splunk as part of the course.
+I began by setting up Splunk via Docker.
  
 This provided a local Splunk environment to use for the practical exercises throughout the course.
  
