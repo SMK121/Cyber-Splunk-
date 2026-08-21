@@ -60,9 +60,11 @@ The search returned the following authentication activity:
 
 ### Findings
 
-The results show a significantly higher volume of **blocked and failed authentication activity** compared with successful authentication activity.
+The results show a significantly higher volume of **blocked and failed authentication activity** compared with successful authentication activity. 
+
 
 This makes authentication activity an important area to monitor for potential security concerns. However, failed or blocked authentication events do not automatically indicate malicious activity and would require further investigation and contextual analysis.
+
 ---
 
 ## 2. Security Report
