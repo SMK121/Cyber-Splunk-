@@ -24,42 +24,47 @@ The overall aim is to demonstrate how raw web-server logs can be turned into use
 
 A Splunk dashboard is a collection of visualisations and panels that presents search results in an easy-to-understand format.
 
-Dashboards are useful for monitoring because they bring multiple pieces of information together in one place. Instead of manually running several searches, a stakeholder can use the dashboard to quickly see important trends, unusual activity and potential areas of concern.
+Dashboards are useful for monitoring because they bring relevant information together in one place. Instead of manually running searches, a stakeholder can use the dashboard to quickly identify important activity, trends and potential security concerns.
 
 ### Purpose of This Dashboard
 
-The **Website Security Concerns** dashboard will provide an overview of security-related activity within the website environment.
+The **Website Security Concerns** dashboard provides an overview of security-related authentication activity within the web-server environment.
 
-It will be designed to help a stakeholder answer questions such as:
+The dashboard focuses on SSH authentication activity and helps a stakeholder identify potentially concerning authentication patterns that may require further investigation.
 
-- Is there an unusual increase in security-related activity?
-- Which IP addresses are generating the most activity?
-- Are there high levels of HTTP errors?
-- Are there requests or patterns that may require further investigation?
+### Dashboard Component
 
-The dashboard will use multiple visualisations to provide both a high-level overview and more detailed information about potentially concerning activity.
+The dashboard contains a visualisation showing the different SSH authentication actions recorded within the security logs:
 
-### Dashboard Components
-
-The dashboard will include visualisations covering areas such as:
-
-- Security-related activity over time
-- HTTP status codes and errors
-- Top source IP addresses
-- Potentially suspicious web activity
+- Blocked authentication
+- Failed authentication
+- Started authentication sessions
+- Successful authentication
 
 ### Dashboard Screenshot
 
-*Screenshot to be added.*
+![Website Security Concerns dashboard showing SSH Authentication Activity](https://github.com/user-attachments/assets/99f97c78-1385-4716-ae96-04c8cf541511)
 
-### SPL Searches
+### SPL Search
 
-*Searches to be added as the dashboard is created.*
+    index=security eventtype=sshd_authentication
+    | stats count BY action
+    | sort -count
+
+### Results
+
+The search returned the following authentication activity:
+
+- **Blocked:** 25,099
+- **Failure:** 24,958
+- **Started:** 1,219
+- **Success:** 1,219
 
 ### Findings
 
-*Findings and observations to be added after analysing the dashboard data.*
+The results show a significantly higher volume of **blocked and failed authentication activity** compared with successful authentication activity.
 
+This makes authentication activity an important area to monitor for potential security concerns. However, failed or blocked authentication events do not automatically indicate malicious activity and would require further investigation and contextual analysis.
 ---
 
 # 2. Security Report
@@ -172,3 +177,5 @@ The three components provide different ways of using Splunk for security monitor
 Together, they demonstrate a basic security monitoring workflow:
 
 **Monitor → Analyse → Report → Alert → Investigate**
+
+
