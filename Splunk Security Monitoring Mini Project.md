@@ -119,35 +119,33 @@ The **High Volume of Failed SSH Logins** alert is designed to identify a high nu
 
 A threshold of **1,000 failed login attempts** was used. If the search detects more than this threshold, the alert condition is met.
 
-### Alert Configuration
-
-The alert was configured as a **scheduled alert** and enabled to run **daily at 09:00**.
-
-The trigger condition is set to **Number of Results > 0**, meaning the alert triggers when the SPL search returns a result after the 1,000 failed-login threshold has been exceeded.
-
-The alert also uses **Add to Triggered Alerts** as its action with a **Medium** severity.
-
-![High Volume of Failed SSH Logins Alert Configuration](https://github.com/user-attachments/assets/9ba7f024-32ad-44c4-b272-8ff28a980b90)
-
-### Alert Preview
-
-The alert search was tested against the available security data using the historical dataset.
-
-The search returned **24,958 failed SSH user authentication attempts**, exceeding the 1,000-attempt threshold. This confirms that the alert condition is met by the available data.
-
-![High Volume of Failed SSH Logins Alert Preview](https://github.com/user-attachments/assets/cf571e2b-18cd-41ba-8fb4-7d2bddd2ec2b)
-
 ### SPL
 
     index=security eventtype=sshd_authentication action=failure
     | stats count AS "Failed Login Attempts"
     | where 'Failed Login Attempts' > 1000
 
+### Alert Configuration
+
+The alert was created as a **scheduled alert** and configured to run **daily at 09:00**.
+
+The trigger condition was set to **Number of Results > 0**, meaning the alert will trigger when the search returns a result after the 1,000 failed-login threshold has been exceeded.
+
+The alert action was configured as **Add to Triggered Alerts** with a **Medium** severity.
+
+![High Volume of Failed SSH Logins Alert Configuration](https://github.com/user-attachments/assets/9ba7f024-32ad-44c4-b272-8ff28a980b90)
+
+### Completed Alert
+
+After saving the alert, it can be viewed in Splunk. The completed alert is **enabled** and shows the configured daily schedule, trigger condition and triggered-alert action.
+
+![High Volume of Failed SSH Logins Alert](https://github.com/user-attachments/assets/cf571e2b-18cd-41ba-8fb4-7d2bddd2ec2b)
+
 ### Result
 
-**24,958 failed SSH user authentication attempts** were identified, exceeding the configured threshold of 1,000.
+The underlying search identified **24,958 failed SSH user authentication attempts**, exceeding the configured threshold of **1,000**.
 
-
+This demonstrates how the alert can identify a high volume of failed SSH user authentication activity within the security logs.
 
 
 ---
