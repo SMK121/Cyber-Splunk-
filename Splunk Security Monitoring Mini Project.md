@@ -67,8 +67,7 @@ This makes authentication activity an important area to monitor for potential se
 
 ## 2. Security Report
 
-
-# What is a Report?
+What is a Report?
 
 A Splunk report is a saved search that can be run automatically according to a defined schedule.
 
