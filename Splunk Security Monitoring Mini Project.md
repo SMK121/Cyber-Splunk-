@@ -152,18 +152,17 @@ This demonstrates how the alert can identify a high volume of failed SSH user au
 
 # Project Summary
 
-The three components provide different ways of using Splunk for security monitoring:
+This project demonstrated the use of Splunk to monitor and analyse security activity within web-server and security logs.
 
-| Feature | Main Purpose |
-|---|---|
-| **Dashboard** | Provides a visual overview of security activity and trends. |
-| **Report** | Provides a scheduled summary of security information. |
-| **Alert** | Automatically identifies activity that meets a defined security condition. |
+Three key Splunk features were implemented:
 
-Together, they demonstrate a basic security monitoring workflow:
+- **Dashboard** – Visualised SSH user authentication activity and highlighted potential security concerns.
+- **Report** – Created a scheduled report to monitor failed SSH user authentication attempts.
+- **Alert** – Created a scheduled alert to identify a high volume of failed SSH user authentication attempts exceeding a defined threshold.
 
-**Monitor → Analyse → Report → Alert → Investigate**
+The project demonstrated how Splunk can be used to turn raw log data into **visual insights, scheduled reporting and automated security monitoring**.
 
+---
 
 
 
