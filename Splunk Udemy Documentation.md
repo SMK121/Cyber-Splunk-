@@ -28,7 +28,7 @@ The course covers Splunk fundamentals, data ingestion, searching, Search Process
   - [14. Alerts](#14-alerts)
   - [15. Tags and Event Types](#15-tags-and-event-types)
   - [16. Macros](#16-macros)
-  - [17. Data Models](#17-data-models)
+  - [17. Datamodels](#17-datamodels)
   - [18. Common Information Model (CIM)](#18-common-information-model-cim)
 - [Conclusion](#conclusion)
  
