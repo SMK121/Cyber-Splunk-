@@ -16,9 +16,7 @@ The overall aim is to demonstrate how raw web-server logs can be turned into use
 
 ---
 
-# 1. Security Dashboard
-
-## Website Security Concerns
+## 1. Security Dashboard
 
 ### What is a Dashboard?
 
@@ -67,9 +65,9 @@ The results show a significantly higher volume of **blocked and failed authentic
 This makes authentication activity an important area to monitor for potential security concerns. However, failed or blocked authentication events do not automatically indicate malicious activity and would require further investigation and contextual analysis.
 ---
 
-# 2. Security Report
+## 2. Security Report
 
-## Failed SSH User Logins
+# Failed SSH User Logins
 
 ### What is a Report?
 
@@ -105,11 +103,11 @@ The **All time** range is used because the dataset contains historical security 
 
 ---
 
-# 3. Security Alert
+## 3. Security Alert
 
-## Potentially Suspicious Web Activity
+# Potentially Suspicious Web Activity
 
-### What is an Alert?
+## What is an Alert?
 
 A Splunk alert monitors search results and automatically triggers when a predefined condition is met.
 
