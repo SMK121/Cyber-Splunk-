@@ -103,58 +103,46 @@ The **All time** range is used because the dataset contains historical security 
 
 ---
 
-## 3. Security Alert
+# 3. Security Alert
 
-# Potentially Suspicious Web Activity
+## High Volume of Failed SSH Logins
 
-## What is an Alert?
+### What is an Alert?
 
-A Splunk alert monitors search results and automatically triggers when a predefined condition is met.
+A Splunk alert is a saved search that automatically checks for a specific condition and can trigger an action when that condition is met.
 
-Alerts are particularly useful for security monitoring because they can identify potentially concerning activity without requiring an analyst to continuously monitor the logs themselves.
-
-For example, an alert could be configured to trigger when an IP address generates an unusually high number of requests within a specific period.
+Alerts are important for security monitoring because they can help identify potentially concerning activity without requiring an analyst to continuously monitor the data manually.
 
 ### Purpose of This Alert
 
-The **Potentially Suspicious Web Activity** alert will monitor the web-server data for an activity pattern that could indicate a security concern.
+The **High Volume of Failed SSH Logins** alert is designed to identify a high number of failed SSH user authentication attempts.
 
-When the defined condition is met, the alert will trigger and provide an opportunity for the activity to be investigated.
-
-The alert does **not automatically confirm that an attack or vulnerability exists**. Instead, it acts as an indicator that something unusual has occurred and may require further investigation.
+The alert uses a threshold of **1,000 failed login attempts**. If the number of failed attempts exceeds this threshold, the alert is triggered.
 
 ### Alert Configuration
 
-**Alert Type:** To be configured
+The alert was configured as a **scheduled alert** and set to run daily. The trigger condition was configured to activate when the search returns a result.
 
-**Schedule:** To be configured
+![High Volume of Failed SSH Logins Alert Configuration](https://github.com/user-attachments/assets/9ba7f024-32ad-44c4-b272-8ff28a980b90)
 
-**Trigger Condition:** To be configured
+### Alert Preview
 
-**Threshold:** To be configured
+The alert search was tested against the available security data. The search returned **24,958 failed SSH user authentication attempts**, exceeding the 1,000-attempt threshold.
 
-### Alert Screenshot
+![High Volume of Failed SSH Logins Alert Preview](https://github.com/user-attachments/assets/cf571e2b-18cd-41ba-8fb4-7d2bddd2ec2b)
 
-*Screenshot to be added.*
+### SPL
 
-### SPL Search
+    index=security eventtype=sshd_authentication action=failure
+    | stats count AS "Failed Login Attempts"
+    | where 'Failed Login Attempts' > 1000
 
-*Search to be added.*
+### Result
 
-### Investigation
+The search returned **24,958 failed SSH user authentication attempts**, meaning the alert condition was met.
 
-If the alert triggers, the activity can be investigated by examining information such as:
 
-- Source IP address
-- Requested URLs
-- HTTP status codes
-- Request volume
-- Timestamps
-- Other relevant event fields
 
-### Findings
-
-*Findings and observations to be added after testing the alert.*
 
 ---
 
@@ -171,5 +159,7 @@ The three components provide different ways of using Splunk for security monitor
 Together, they demonstrate a basic security monitoring workflow:
 
 **Monitor → Analyse → Report → Alert → Investigate**
+
+
 
 
