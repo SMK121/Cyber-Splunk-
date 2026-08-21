@@ -614,7 +614,7 @@ The completed dashboard provided a graphical view of the total event activity an
 This practical exercise demonstrated how SPL searches can be converted into visualisations and added to dashboards to make Splunk data easier to monitor, analyse and interpret.
 
 ---
-### 14. Reports and Drilldowns
+### 13. Reports and Drilldowns
 
 **Reports** in Splunk are saved searches that can be run again when the same information is needed. They are useful for regularly monitoring activity, analysing data and sharing useful search results with other users.
 
