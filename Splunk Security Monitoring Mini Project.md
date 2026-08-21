@@ -117,17 +117,23 @@ Alerts are important for security monitoring because they can help identify pote
 
 The **High Volume of Failed SSH Logins** alert is designed to identify a high number of failed SSH user authentication attempts.
 
-The alert uses a threshold of **1,000 failed login attempts**. If the number of failed attempts exceeds this threshold, the alert is triggered.
+A threshold of **1,000 failed login attempts** was used. If the search detects more than this threshold, the alert condition is met.
 
 ### Alert Configuration
 
-The alert was configured as a **scheduled alert** and set to run daily. The trigger condition was configured to activate when the search returns a result.
+The alert was configured as a **scheduled alert** and enabled to run **daily at 09:00**.
+
+The trigger condition is set to **Number of Results > 0**, meaning the alert triggers when the SPL search returns a result after the 1,000 failed-login threshold has been exceeded.
+
+The alert also uses **Add to Triggered Alerts** as its action with a **Medium** severity.
 
 ![High Volume of Failed SSH Logins Alert Configuration](https://github.com/user-attachments/assets/9ba7f024-32ad-44c4-b272-8ff28a980b90)
 
 ### Alert Preview
 
-The alert search was tested against the available security data. The search returned **24,958 failed SSH user authentication attempts**, exceeding the 1,000-attempt threshold.
+The alert search was tested against the available security data using the historical dataset.
+
+The search returned **24,958 failed SSH user authentication attempts**, exceeding the 1,000-attempt threshold. This confirms that the alert condition is met by the available data.
 
 ![High Volume of Failed SSH Logins Alert Preview](https://github.com/user-attachments/assets/cf571e2b-18cd-41ba-8fb4-7d2bddd2ec2b)
 
@@ -139,7 +145,7 @@ The alert search was tested against the available security data. The search retu
 
 ### Result
 
-The search returned **24,958 failed SSH user authentication attempts**, meaning the alert condition was met.
+**24,958 failed SSH user authentication attempts** were identified, exceeding the configured threshold of 1,000.
 
 
 
