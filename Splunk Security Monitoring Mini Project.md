@@ -67,9 +67,8 @@ This makes authentication activity an important area to monitor for potential se
 
 ## 2. Security Report
 
-# Failed SSH User Logins
 
-### What is a Report?
+# What is a Report?
 
 A Splunk report is a saved search that can be run automatically according to a defined schedule.
 
