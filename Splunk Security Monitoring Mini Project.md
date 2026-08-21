@@ -69,43 +69,39 @@ This makes authentication activity an important area to monitor for potential se
 
 # 2. Security Report
 
-## Daily Website Security Activity Report
+## Failed SSH User Logins
 
 ### What is a Report?
 
 A Splunk report is a saved search that can be run automatically according to a defined schedule.
 
-Reports are useful when stakeholders need regular information without having to manually open Splunk and run the search themselves.
-
-For example, a security team could receive a daily report summarising the previous day's security-related activity.
+Reports are useful when stakeholders need regular information without having to manually open Splunk and run the search themselves. A report can provide a consistent summary of specific activity that a stakeholder wants to monitor.
 
 ### Purpose of This Report
 
-The **Daily Website Security Activity Report** will provide a scheduled summary of relevant security activity identified within the web-server logs.
+The **Failed SSH User Logins** report monitors failed SSH user authentication attempts within the security logs.
 
-The report will allow a stakeholder to regularly review security-related events and identify anything that may require further investigation.
+The report provides a simple count of failed authentication attempts, allowing a stakeholder to regularly monitor authentication activity and identify potentially concerning levels of failed login activity.
 
-Unlike the dashboard, which is designed for interactive monitoring, the report is focused on **regularly delivering a summary of the data**.
+Unlike the dashboard, which is designed for interactive monitoring and visualisation, the report is designed to **automatically run the saved search on a scheduled basis**.
+
+### SPL
+
+    index=security eventtype=sshd_authentication action=failure
+    | stats count AS "Failed Login Attempts"
+
+### Results
+
+The search returned **24,958 failed SSH user authentication attempts** using the **All time** time range.
+
+![Failed SSH User Login Report](https://github.com/user-attachments/assets/e1bdaf7e-74ab-44ef-ac14-5faf937c71cf)
 
 ### Schedule
 
-**Frequency:** Daily
+The search was saved as the **Failed SSH User Logins** report and configured to run **daily at 09:00**.
 
-**Time:** To be configured
+The **All time** range is used because the dataset contains historical security events rather than current-day activity.
 
-**Time Range:** To be configured
-
-### Report Screenshot
-
-*Screenshot to be added.*
-
-### SPL Search
-
-*Search to be added.*
-
-### Findings
-
-*Findings and observations to be added after the report has been created and reviewed.*
 
 ---
 
