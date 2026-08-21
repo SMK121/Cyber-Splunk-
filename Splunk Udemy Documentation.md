@@ -562,7 +562,7 @@ Lookups are particularly useful in security operations because reference data ca
 ---
 
 
-### 13. Dashboards
+### 12. Dashboards
 
 A **Splunk dashboard** is a collection of panels containing searches, tables, charts and other visualisations. Dashboards bring related information together in one place, making it easier to monitor and analyse activity.
 
@@ -644,7 +644,7 @@ Reports and drilldowns are particularly useful when working with dashboards and 
 
 ---
 
-### 15. Alerts
+### 14. Alerts
 
 A **Splunk alert** is a saved search that runs automatically based on defined conditions. When the conditions are met, Splunk can trigger an action to notify users or record the alert for further investigation.
 
@@ -682,7 +682,7 @@ Alerts are particularly useful in a **Security Operations Centre (SOC)** because
 
 ---
 
-### 16. Tags and Event Types
+### 15. Tags and Event Types
 
 **Tags** in Splunk are labels that can be applied to specific field-value combinations. They provide an easier way to identify and search for related information without having to remember the exact underlying field and value.
 
@@ -714,7 +714,7 @@ Tags and event types can be particularly useful in security operations when anal
 
 ---
 
-### 17. Macros
+### 16. Macros
 
 A **Splunk macro** is a reusable piece of SPL that can be inserted into searches. Macros are useful for simplifying complex or repetitive search logic and making searches easier to maintain.
 
