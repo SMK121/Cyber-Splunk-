@@ -30,8 +30,8 @@ The course covers Splunk fundamentals, data ingestion, searching, Search Process
   - [16. Macros](#16-macros)
   - [17. Datamodels](#17-datamodels)
   - [18. Common Information Model (CIM)](#18-common-information-model-cim)
-- [Conclusion](#conclusion)
  
+- [Conclusion](#conclusion)
 ---
  
 ## Practical Learning
@@ -731,37 +731,6 @@ Macros can be used to:
 - Standardise commonly used search logic
 - Make changes easier to maintain
 
-For example, if the same search filter is used across multiple searches, the filter can be stored in a macro and then referenced whenever required.
-
-#### Practical Exercise
-
-I explored how macros can be created and used within Splunk searches.
-
-Macros can be created through **Settings → Advanced Search → Search Macros**, where the search logic, name and other settings can be configured.
-
-Once created, the macro can be called from an SPL search using the macro's name, allowing the saved search logic to be reused without having to manually enter it each time.
-
-This demonstrated how macros can make SPL searches more efficient, reusable and easier to maintain, particularly when the same search logic is required across multiple searches.
-
----
-
-### 17. Macros
-
-A **Splunk macro** is a reusable piece of SPL that can be inserted into searches. Macros are useful for simplifying complex or repetitive search logic and making searches easier to maintain.
-
-Instead of repeatedly writing the same SPL, a macro can store the search logic and be called whenever it is needed.
-
-#### Why Are Macros Useful?
-
-Macros can be used to:
-
-- Reuse common SPL search logic
-- Reduce repetition in searches
-- Simplify complex searches
-- Make searches easier to read
-- Standardise commonly used search logic
-- Make changes easier to maintain
-
 For example, if the same search and analysis is used across multiple searches, the search logic can be stored in a macro and then referenced whenever required.
 
 #### Practical Macro Exercise
@@ -798,7 +767,7 @@ This practical exercise demonstrated how macros can store reusable SPL logic and
 Macros can be particularly useful in larger Splunk environments where analysts regularly use the same search logic across different searches, reports, dashboards and investigations.
 
 ---
-### 18. Datamodels
+### 17. Datamodels
 
 A **Splunk data model** is a structured representation of data that organises related events and fields into a consistent format. Data models make it easier to search and analyse specific types of activity without having to work directly with the raw event structure every time.
 
@@ -841,7 +810,7 @@ Datamodels are particularly useful in security operations because they provide a
 
 ---
 
-### 19. Common Information Model (CIM)
+### 18. Common Information Model (CIM)
 
 The **Common Information Model (CIM)** is a standard used by Splunk to provide a consistent structure for data from different sources.
 
